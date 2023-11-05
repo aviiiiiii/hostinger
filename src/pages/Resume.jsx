@@ -211,6 +211,27 @@ function Resume() {
                 in Cyclic.
               </p>
             </li>
+
+            <li>
+              <strong> Expense Tracker</strong>
+              <span> - </span>
+              <a href="http://aviiiiii.site/expenseTracker" target="_blank">
+                Click Here
+              </a>
+              <p>
+                <span>&#8226;</span> In this application, we can entry our
+                transactions and we can able to see the expense/income filtered
+                with month or year or user.
+              </p>
+              <p>
+                <span>&#8226;</span> FrontEnd is done with React JS and hosted
+                in Netlify.
+              </p>
+              <p>
+                <span>&#8226;</span> BackEnd is done with Express JS and hosted
+                in Cyclic.
+              </p>
+            </li>
           </ul>
         </div>
       </div>

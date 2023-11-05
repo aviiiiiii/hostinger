@@ -20,7 +20,7 @@ function Resume() {
         </header>
 
         <div class="resume-section">
-          <h2>Summary</h2>
+          <h2>Carrer Objective</h2>
           <p>
             Seeking challenging opportunitieswhere I can fully utilize my
             analytical and technical skills for the success of my organization.
@@ -183,6 +183,33 @@ function Resume() {
             </li>
             <li>
               <span>&#8226;</span> Hobbies : Puzzles, Rubik’s cube
+            </li>
+          </ul>
+        </div>
+
+        <div class="resume-section">
+          <h2>Projects</h2>
+          <ul class="resume-ul">
+            <li>
+              <strong> TollGate And Vehicle Entry</strong>
+              <span> - </span>
+              <a href="http://aviiiiii.site/tolllist" target="_blank">
+                Click Here
+              </a>
+              <p>
+                <span>&#8226;</span> In this application, we can create the
+                entry for all the tollgate with the price for each vehicle type
+                for both single and return journey, And also we create an entry
+                for the vehicles which is passing that particular tollGate.
+              </p>
+              <p>
+                <span>&#8226;</span> FrontEnd is done with React JS and hosted
+                in Netlify.
+              </p>
+              <p>
+                <span>&#8226;</span> BackEnd is done with Express JS and hosted
+                in Cyclic.
+              </p>
             </li>
           </ul>
         </div>

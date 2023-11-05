@@ -14,7 +14,180 @@ export const DataProvider = ({ children }) => {
   useEffect(() => {
     fetchVehicleList();
     fetchTollList();
+
+    ///////////////////////////////////////////
+    let formattedMonth;
+    let formattedMonth1;
+    formattedMonth = Number(currentMonth) + 1;
+    formattedMonth = String(formattedMonth);
+    if (formattedMonth.length === 1) formattedMonth = "0" + formattedMonth;
+    formattedMonth1 = currentYear + "-" + formattedMonth;
+    fetchTransactions();
+    setYear(currentYear);
+    setMonth(formattedMonth1);
+    fetchYearlyIncome(currentYear);
+    fetchYearlyExpense(currentYear);
+    fetchMonthlyIncome(formattedMonth1);
+    fetchMonthlyExpense(formattedMonth1);
+    ////////////////////////////////////////
   }, []);
+
+  //////////////////////////////////////////////////////////////////////////////
+  const date = new Date();
+  const currentYear = new String(date.getFullYear());
+  const currentMonth = new String(date.getMonth());
+
+  const [year, setYear] = useState("0");
+  const [yearIncome, setYearIncome] = useState("0");
+  const [yearExpense, setYearExpense] = useState("0");
+
+  const [month, setMonth] = useState("0");
+  const [monthIncome, setMonthIncome] = useState("0");
+  const [monthExpense, setMonthExpense] = useState("0");
+
+  const [amount, setAmount] = useState(0);
+  const [user, setUser] = useState("");
+  const [type, setType] = useState("Income");
+  const [description, setDescription] = useState("");
+
+  const [transactions, setTransactions] = useState([]);
+
+  const fetchTransactionsWithFilter = async (filter) => {
+    if (filter.user === "") filter.user = "null";
+    if (filter.type === "") filter.type = "null";
+    if (filter.dateFrom === "") filter.dateFrom = "null";
+    if (filter.dateTo === "") filter.dateTo = "null";
+    const response = await fetch(
+      `/getTransactionsWithFilter/${filter.user}/${filter.type}/${filter.dateFrom}/${filter.dateTo}`
+    );
+    const data = await response.json();
+    console.log(data);
+    setTransactions(data);
+  };
+
+  const fetchTransactions = async () => {
+    const response = await fetch("/getTransactions");
+    const data = await response.json();
+    console.log(data);
+    setTransactions(data);
+  };
+
+  const fetchYearlyIncome = async (sentYear) => {
+    console.log(sentYear);
+    const response = await fetch(`/getYearlyIncome/${sentYear}`);
+    const data = await response.json();
+    setYearIncome(data.yearlyIncome);
+  };
+
+  const fetchYearlyExpense = async (sentYear) => {
+    console.log(sentYear);
+    const response = await fetch(`/getYearlyExpense/${sentYear}`);
+    const data = await response.json();
+    setYearExpense(data.yearlyExpense);
+  };
+
+  const fetchMonthlyIncome = async (sentMonth) => {
+    console.log(sentMonth);
+    const response = await fetch(`/getMonthlyIncome/${sentMonth}`);
+    const data = await response.json();
+    setMonthIncome(data.monthlyIncome);
+  };
+
+  const fetchMonthlyExpense = async (sentMonth) => {
+    console.log(sentMonth);
+    const response = await fetch(`/getMonthlyExpense/${sentMonth}`);
+    const data = await response.json();
+    setMonthExpense(data.monthlyExpense);
+  };
+
+  const funcAddTransaction = async (data) => {
+    const response = await fetch("/postTransaction", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+  };
+
+  const funcDeleteTransaction = async (id) => {
+    await fetch(`/  eleteTransaction/${id}`, { method: "DELETE" });
+  };
+
+  const updateYear = (event) => {
+    event.preventDefault();
+    // console.log(event);
+    if (event.target[0].value === "") return;
+    setYear(event.target[0].value);
+    console.log("year is %d", event.target[0].value);
+    fetchYearlyIncome(event.target[0].value);
+    fetchYearlyExpense(event.target[0].value);
+  };
+
+  const updateMonth = (event) => {
+    event.preventDefault();
+    if (event.target[0].value === "") return;
+    setMonth(event.target[0].value);
+    console.log("month is %s", event.target[0].value);
+    fetchMonthlyIncome(event.target[0].value);
+    fetchMonthlyExpense(event.target[0].value);
+  };
+
+  const addTransaction = (event) => {
+    event.preventDefault();
+    if (
+      event.target[0].value === "" ||
+      event.target[1].value === "" ||
+      event.target[2].value === "" ||
+      event.target[3].value === "" ||
+      event.target[4].value === ""
+    ) {
+      window.alert("Please enter details for adding transaction");
+      return;
+    }
+    const newTransaction = {
+      user: event.target[0].value,
+      type: event.target[2].value,
+      amount: event.target[1].value,
+      date: event.target[3].value,
+      description: event.target[4].value,
+    };
+
+    console.log(newTransaction);
+    funcAddTransaction(newTransaction);
+    fetchTransactions();
+    event.target.reset();
+  };
+
+  const filterSubmit = (event) => {
+    event.preventDefault();
+    if (event.nativeEvent.submitter.name === "filterSearch") {
+      const filterDetails = {
+        user: event.target[0].value,
+        type: event.target[1].value,
+        dateFrom: event.target[2].value,
+        dateTo: event.target[3].value,
+      };
+      console.log(filterDetails);
+      fetchTransactionsWithFilter(filterDetails);
+    } else {
+      fetchTransactions();
+      event.target.reset();
+    }
+  };
+
+  const deleteOneTransaction = async (event) => {
+    event.preventDefault();
+    console.log(event.nativeEvent.submitter.name);
+    funcDeleteTransaction(event.nativeEvent.submitter.name);
+    fetchTransactions();
+    fetchYearlyIncome(year);
+    fetchYearlyExpense(year);
+    fetchMonthlyIncome(month);
+    fetchMonthlyExpense(month);
+  };
+
+  ///////////////////////////////////////////////////////////////////////////////
 
   const fetchVehicleList = async () => {
     const response = await fetch(serverURL + "/getVehicleList");
@@ -295,6 +468,23 @@ export const DataProvider = ({ children }) => {
         clickFilter,
         filterWithTollName,
         deleteToll,
+
+        year: year,
+        month: month,
+        yearIncome: yearIncome,
+        yearExpense: yearExpense,
+        monthIncome: monthIncome,
+        monthExpense: monthExpense,
+        amount: amount,
+        user: user,
+        description: description,
+        type: type,
+        transactions: transactions,
+        addTransaction: addTransaction,
+        updateMonth: updateMonth,
+        updateYear: updateYear,
+        filterSubmit: filterSubmit,
+        deleteOneTransaction: deleteOneTransaction,
       }}
     >
       {children}

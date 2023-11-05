@@ -58,7 +58,8 @@ export const DataProvider = ({ children }) => {
     if (filter.dateFrom === "") filter.dateFrom = "null";
     if (filter.dateTo === "") filter.dateTo = "null";
     const response = await fetch(
-      `/getTransactionsWithFilter/${filter.user}/${filter.type}/${filter.dateFrom}/${filter.dateTo}`
+      serverURL +
+        `/getTransactionsWithFilter/${filter.user}/${filter.type}/${filter.dateFrom}/${filter.dateTo}`
     );
     const data = await response.json();
     console.log(data);
@@ -66,7 +67,7 @@ export const DataProvider = ({ children }) => {
   };
 
   const fetchTransactions = async () => {
-    const response = await fetch("/getTransactions");
+    const response = await fetch(serverURL + "/getTransactions");
     const data = await response.json();
     console.log(data);
     setTransactions(data);
@@ -74,34 +75,34 @@ export const DataProvider = ({ children }) => {
 
   const fetchYearlyIncome = async (sentYear) => {
     console.log(sentYear);
-    const response = await fetch(`/getYearlyIncome/${sentYear}`);
+    const response = await fetch(serverURL + `/getYearlyIncome/${sentYear}`);
     const data = await response.json();
     setYearIncome(data.yearlyIncome);
   };
 
   const fetchYearlyExpense = async (sentYear) => {
     console.log(sentYear);
-    const response = await fetch(`/getYearlyExpense/${sentYear}`);
+    const response = await fetch(serverURL + `/getYearlyExpense/${sentYear}`);
     const data = await response.json();
     setYearExpense(data.yearlyExpense);
   };
 
   const fetchMonthlyIncome = async (sentMonth) => {
     console.log(sentMonth);
-    const response = await fetch(`/getMonthlyIncome/${sentMonth}`);
+    const response = await fetch(serverURL + `/getMonthlyIncome/${sentMonth}`);
     const data = await response.json();
     setMonthIncome(data.monthlyIncome);
   };
 
   const fetchMonthlyExpense = async (sentMonth) => {
     console.log(sentMonth);
-    const response = await fetch(`/getMonthlyExpense/${sentMonth}`);
+    const response = await fetch(serverURL + `/getMonthlyExpense/${sentMonth}`);
     const data = await response.json();
     setMonthExpense(data.monthlyExpense);
   };
 
   const funcAddTransaction = async (data) => {
-    const response = await fetch("/postTransaction", {
+    const response = await fetch(serverURL + "/postTransaction", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -111,7 +112,7 @@ export const DataProvider = ({ children }) => {
   };
 
   const funcDeleteTransaction = async (id) => {
-    await fetch(`/  eleteTransaction/${id}`, { method: "DELETE" });
+    await fetch(serverURL + `/  eleteTransaction/${id}`, { method: "DELETE" });
   };
 
   const updateYear = (event) => {

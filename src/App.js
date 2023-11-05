@@ -1,5 +1,6 @@
 import "./App.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import S3StaticWebpage from "./pages/S3StaticWebpage";
 import VehicleLogs from "./pages/VehicleLogs";
 import TollList from "./pages/TollList";
 import PageNotFound from "./pages/PageNotFound";
@@ -21,6 +22,7 @@ function App() {
           <Route exact path="/resume" element={<Resume />} />
           <Route exact path="/tollList" element={<TollList />} />
           <Route exact path="/vehicleLogs" element={<VehicleLogs />} />
+          <Route exact path="/s3StaticWebpage" element={<S3StaticWebpage />} />
           <Route
             exact
             path="/expenseTracker"

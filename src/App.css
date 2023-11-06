@@ -130,6 +130,13 @@ Button:hover {
   font-size: 50px;
 }
 
+img.dummy {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+}
+
 .dummy p ul {
   font-size: 10px;
 }

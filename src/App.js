@@ -6,6 +6,7 @@ import TollList from "./pages/TollList";
 import PageNotFound from "./pages/PageNotFound";
 import Resume from "./pages/Resume";
 import Dummy from "./pages/Dummy";
+import Photo from "./pages/Photo";
 import DashBoard from "./pages/DashBoard";
 import Transactions from "./pages/Transactions";
 import { DataProvider } from "./contexts/DataContext";
@@ -23,6 +24,7 @@ function App() {
           <Route exact path="/tollList" element={<TollList />} />
           <Route exact path="/vehicleLogs" element={<VehicleLogs />} />
           <Route exact path="/s3StaticWebpage" element={<S3StaticWebpage />} />
+          <Route exact path="/photo" element={<Photo />} />
           <Route
             exact
             path="/expenseTracker"

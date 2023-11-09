@@ -26,7 +26,16 @@ function Dummy() {
             </li>
             <li>
               {" "}
-              <a href="/s3StaticWebpage">S3StaticWebpage</a>
+              <a href="/awsAPIandLambda">awsAPIandLambda</a>
+            </li>
+            <li>
+              {" "}
+              <a
+                href="http://sample-static-website-avi.s3-website.ap-south-1.amazonaws.com/"
+                target="blank"
+              >
+                S3StaticWebpage
+              </a>
             </li>
           </ul>
         </div>

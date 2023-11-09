@@ -11,6 +11,13 @@ export const DataProvider = ({ children }) => {
   // const serverURL="http://localhost:5000";
   let newEntry;
 
+  ///////////////////////////////////////////////////////////
+
+  const [imageURL, setImageURL] = useState(
+    "https://t3.ftcdn.net/jpg/00/28/08/40/240_F_28084010_bGRJetPfBwNcO3YuRC2C3Pz7qASocWQ4.jpg"
+  );
+  ///////////////////////////////////////////////////////////
+
   useEffect(() => {
     fetchVehicleList();
     fetchTollList();
@@ -30,6 +37,8 @@ export const DataProvider = ({ children }) => {
     fetchMonthlyIncome(formattedMonth1);
     fetchMonthlyExpense(formattedMonth1);
     ////////////////////////////////////////
+    searchImage();
+    setImageURL(imageURL);
   }, []);
 
   //////////////////////////////////////////////////////////////////////////////
@@ -450,6 +459,31 @@ export const DataProvider = ({ children }) => {
     fetchTollList();
   };
 
+  //////////////////////////////////////////////////////////////////////////////////////
+  const searchImage = async () => {
+    // let number = Math.floor(Math.random() * 10);
+    // let a = [
+    //   "https://t3.ftcdn.net/jpg/00/28/08/40/240_F_28084010_bGRJetPfBwNcO3YuRC2C3Pz7qASocWQ4.jpg",
+    //   "https://t4.ftcdn.net/jpg/01/35/97/83/240_F_135978399_qplk3WPu7JOA63JPCYVy1fb7MI4nefAL.jpg",
+    //   "https://t3.ftcdn.net/jpg/00/51/69/94/240_F_51699465_hvdWz7J0kRDWfFwDSNKA5bsXiVTXi8rG.jpg",
+    //   "https://t3.ftcdn.net/jpg/00/51/69/94/240_F_51699465_hvdWz7J0kRDWfFwDSNKA5bsXiVTXi8rG.jpg",
+    //   "https://t3.ftcdn.net/jpg/05/59/74/86/240_F_559748686_cDNuhLxMJHq4oXQVKaRvc7w9fQnQV25Q.jpg",
+    //   "https://t3.ftcdn.net/jpg/05/59/74/86/240_F_559748686_cDNuhLxMJHq4oXQVKaRvc7w9fQnQV25Q.jpg",
+    //   "https://t3.ftcdn.net/jpg/05/59/74/86/240_F_559748686_cDNuhLxMJHq4oXQVKaRvc7w9fQnQV25Q.jpg",
+    //   "https://t3.ftcdn.net/jpg/03/85/16/06/240_F_385160616_YWFD9YBy1sDGbpQIgWUkw3o7c4jp1E7Q.jpg",
+    //   "https://t3.ftcdn.net/jpg/03/85/16/06/240_F_385160616_YWFD9YBy1sDGbpQIgWUkw3o7c4jp1E7Q.jpg",
+    //   "https://t3.ftcdn.net/jpg/01/74/37/34/240_F_174373464_PekSqb8rgCGQsxbPoezBM3Ecir8fdBAs.jpg",
+    // ];
+    // setImageURL(a[number]);
+    const response = await fetch(
+      "https://zaq7cz8wjd.execute-api.ap-south-1.amazonaws.com/new"
+    );
+    const data = await response.json();
+    console.log("data : " + data);
+    console.log("response : " + response);
+  };
+  //////////////////////////////////////////////////////////////////////////////////////
+
   return (
     <DataContext.Provider
       value={{
@@ -469,7 +503,7 @@ export const DataProvider = ({ children }) => {
         clickFilter,
         filterWithTollName,
         deleteToll,
-
+        // //////////////////////////////////
         year: year,
         month: month,
         yearIncome: yearIncome,
@@ -486,6 +520,11 @@ export const DataProvider = ({ children }) => {
         updateYear: updateYear,
         filterSubmit: filterSubmit,
         deleteOneTransaction: deleteOneTransaction,
+        ////////////////////////////////////////////////////
+
+        imageURL,
+        setImageURL,
+        searchImage,
       }}
     >
       {children}

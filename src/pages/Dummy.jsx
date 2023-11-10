@@ -30,6 +30,10 @@ function Dummy() {
             </li>
             <li>
               {" "}
+              <a href="/awsS3TextFile">awsS3TextFile</a>
+            </li>
+            <li>
+              {" "}
               <a
                 href="http://sample-static-website-avi.s3-website.ap-south-1.amazonaws.com/"
                 target="blank"

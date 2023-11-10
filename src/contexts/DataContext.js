@@ -16,6 +16,8 @@ export const DataProvider = ({ children }) => {
   const [imageURL, setImageURL] = useState(
     "https://t3.ftcdn.net/jpg/00/28/08/40/240_F_28084010_bGRJetPfBwNcO3YuRC2C3Pz7qASocWQ4.jpg"
   );
+
+  const [countries, setCountries] = useState("Empty");
   ///////////////////////////////////////////////////////////
 
   useEffect(() => {
@@ -37,7 +39,7 @@ export const DataProvider = ({ children }) => {
     fetchMonthlyIncome(formattedMonth1);
     fetchMonthlyExpense(formattedMonth1);
     ////////////////////////////////////////
-    searchImage();
+    // searchImage();
     setImageURL(imageURL);
   }, []);
 
@@ -494,6 +496,46 @@ export const DataProvider = ({ children }) => {
     // console.log("data : " + data);
     // console.log("response : " + response.body);
   };
+
+  // const getTextFile = async () => {
+  //   const response = await fetch(
+  //     "https://sample-storage-avi.s3.ap-south-1.amazonaws.com/List+of+countries.txt"
+  //   )
+  //     .then((response) => console.log(response))
+  //     .then((data) => {
+  //       console.log(data);
+  //       setImageURL(data);
+  //     });
+  // };
+
+  const getTextFile = async () => {
+    const response = await fetch(
+      "https://sample-storage-avi.s3.ap-south-1.amazonaws.com/List+of+countries.txt"
+    );
+    console.log(response);
+
+    const data = await response.text();
+    console.log(data);
+    setCountries(data);
+  };
+
+  const addCountry = async () => {
+    let newCountry = document.getElementById("countryInput").value;
+
+    if (newCountry.trim() == "") {
+      alert("Empty");
+      return;
+    }
+
+    const response = await fetch(
+      "https://sample-storage-avi.s3.ap-south-1.amazonaws.com/List+of+countries.txt"
+    );
+    console.log(response);
+    let data = await response.text();
+    data = data + newCountry;
+    alert(data);
+  };
+
   //////////////////////////////////////////////////////////////////////////////////////
 
   return (
@@ -537,6 +579,10 @@ export const DataProvider = ({ children }) => {
         imageURL,
         setImageURL,
         searchImage,
+        getTextFile,
+        countries,
+        setCountries,
+        addCountry,
       }}
     >
       {children}

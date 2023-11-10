@@ -1,8 +1,6 @@
 import React, { useContext } from "react";
 import DataContext from "../contexts/DataContext";
 
-let a = "hello";
-
 function AwsAPIandLambda() {
   const { imageURL, setImageURL, searchImage } = useContext(DataContext);
   return (
@@ -12,7 +10,6 @@ function AwsAPIandLambda() {
       </button>
       <br />
       <img src={imageURL} />
-      {/* <div>{imageURL}</div> */}
     </div>
   );
 }

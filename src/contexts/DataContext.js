@@ -475,9 +475,12 @@ export const DataProvider = ({ children }) => {
     //   "https://t3.ftcdn.net/jpg/01/74/37/34/240_F_174373464_PekSqb8rgCGQsxbPoezBM3Ecir8fdBAs.jpg",
     // ];
     // setImageURL(a[number]);
+    // "https://kind-bear-school-uniform.cyclic.app//https://zaq7cz8wjd.execute-api.ap-south-1.amazonaws.com/new",
+
     const response = await fetch(
       "https://zaq7cz8wjd.execute-api.ap-south-1.amazonaws.com/new"
     );
+    console.log(response);
     const data = await response.json();
     console.log("data : " + data);
     console.log("response : " + response);

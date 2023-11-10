@@ -8,9 +8,11 @@ function AwsAPIandLambda() {
   return (
     <div className="awsAPIandLambda">
       <button className="getnewId" onClick={searchImage}>
-        close
+        Get the new image url from lambda
       </button>
-      {/* <img src={imageURL} /> */}
+      <br />
+      <img src={imageURL} />
+      {/* <div>{imageURL}</div> */}
     </div>
   );
 }

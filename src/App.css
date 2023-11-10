@@ -327,3 +327,19 @@ iframe {
 }
 
 /* Static S3 */
+
+/* AWSGateway and Lambda */
+
+.awsAPIandLambda button {
+  width: 100%;
+  font-size: larger;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+.awsAPIandLambda img {
+  width: 50%;
+  padding-top: 10px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}

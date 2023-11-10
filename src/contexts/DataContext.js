@@ -478,12 +478,21 @@ export const DataProvider = ({ children }) => {
     // "https://kind-bear-school-uniform.cyclic.app//https://zaq7cz8wjd.execute-api.ap-south-1.amazonaws.com/new",
 
     const response = await fetch(
-      "https://zaq7cz8wjd.execute-api.ap-south-1.amazonaws.com/new"
-    );
-    console.log(response);
-    const data = await response.json();
-    console.log("data : " + data);
-    console.log("response : " + response);
+      "https://zaq7cz8wjd.execute-api.ap-south-1.amazonaws.com/new",
+      {
+        method: "GET",
+      }
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data.body);
+        setImageURL(data.body);
+      });
+    // console.log(response);
+    // setImageURL(response);
+    // const data = await response.json();
+    // console.log("data : " + data);
+    // console.log("response : " + response.body);
   };
   //////////////////////////////////////////////////////////////////////////////////////
 

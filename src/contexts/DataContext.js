@@ -1,5 +1,6 @@
 import { createContext, useEffect, useState } from "react";
 import React from "react";
+import AwsS3TextFile from "../pages/AwsS3TextFile";
 
 const DataContext = createContext();
 
@@ -17,7 +18,8 @@ export const DataProvider = ({ children }) => {
     "https://t3.ftcdn.net/jpg/00/28/08/40/240_F_28084010_bGRJetPfBwNcO3YuRC2C3Pz7qASocWQ4.jpg"
   );
 
-  const [countries, setCountries] = useState("Empty");
+  const [countries, setCountries] = useState([]);
+
   ///////////////////////////////////////////////////////////
 
   useEffect(() => {
@@ -510,13 +512,14 @@ export const DataProvider = ({ children }) => {
 
   const getTextFile = async () => {
     const response = await fetch(
-      "https://sample-storage-avi.s3.ap-south-1.amazonaws.com/List+of+countries.txt"
+      "https://sample-storage-avi.s3.ap-south-1.amazonaws.com/List_of_countries.txt"
     );
-    console.log(response);
 
     const data = await response.text();
     console.log(data);
-    setCountries(data);
+    let countryList = data.split("\r\n");
+    console.log(countryList);
+    setCountries(countryList);
   };
 
   const addCountry = async () => {
@@ -528,12 +531,30 @@ export const DataProvider = ({ children }) => {
     }
 
     const response = await fetch(
-      "https://sample-storage-avi.s3.ap-south-1.amazonaws.com/List+of+countries.txt"
+      "https://sample-storage-avi.s3.ap-south-1.amazonaws.com/List_of_countries.txt"
     );
-    console.log(response);
     let data = await response.text();
-    data = data + newCountry;
+    console.log(data);
+    data = data + "\r\n" + newCountry;
     alert(data);
+
+    putData(data);
+  };
+
+  const putData = async (country) => {
+    await fetch(
+      "https://zaq7cz8wjd.execute-api.ap-south-1.amazonaws.com/new/sample-storage-avi/List_of_countries.txt",
+      {
+        method: "PUT",
+        headers: {
+          "Content-Type": "text/plain",
+        },
+        body: country,
+      }
+    )
+      .then((response) => response.text())
+      .then((data) => console.log(data))
+      .catch((error) => console.error(error));
   };
 
   //////////////////////////////////////////////////////////////////////////////////////

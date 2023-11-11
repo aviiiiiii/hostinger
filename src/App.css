@@ -343,3 +343,18 @@ iframe {
   margin-left: auto;
   margin-right: auto;
 }
+
+/* AWSGateway and Lambda */
+
+/* AWSGateway and S3 */
+
+.awsS3Container {
+  display: flex;
+}
+
+.awsS3Child {
+  flex: 1;
+  /* height: 100%; */
+}
+
+/* AWSGateway and S3 */

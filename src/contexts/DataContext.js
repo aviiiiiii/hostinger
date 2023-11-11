@@ -1,6 +1,7 @@
 import { createContext, useEffect, useState } from "react";
 import React from "react";
 import AwsS3TextFile from "../pages/AwsS3TextFile";
+import { FaAngleDoubleRight } from "react-icons/fa";
 
 const DataContext = createContext();
 
@@ -516,7 +517,6 @@ export const DataProvider = ({ children }) => {
     );
 
     const data = await response.text();
-    console.log(data);
     let countryList = data.split("\r\n");
     console.log(countryList);
     setCountries(countryList);
@@ -555,6 +555,26 @@ export const DataProvider = ({ children }) => {
       .then((response) => response.text())
       .then((data) => console.log(data))
       .catch((error) => console.error(error));
+  };
+
+  const deleteCountry = async () => {
+    let delCountry = document.getElementById("countryInputDelete").value;
+    if (delCountry.trim() == "") {
+      alert("Empty");
+      return;
+    }
+    if (!countries.includes(delCountry)) {
+      alert("not present");
+      return;
+    }
+
+    let updatedCountries = countries.filter((item) => {
+      return item != delCountry;
+    });
+    updatedCountries = updatedCountries.toString();
+    let updatedCountries2 = updatedCountries.replaceAll(",", "\r\n");
+    putData(updatedCountries2);
+    getTextFile();
   };
 
   //////////////////////////////////////////////////////////////////////////////////////
@@ -604,6 +624,7 @@ export const DataProvider = ({ children }) => {
         countries,
         setCountries,
         addCountry,
+        deleteCountry,
       }}
     >
       {children}

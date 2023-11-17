@@ -591,7 +591,7 @@ export const DataProvider = ({ children }) => {
   const sendApiRequest = async () => {
     let apiInputText = document.getElementById("apiInputText").value;
 
-    if (apiInputText.trim.length == 0) {
+    if (apiInputText.length == 0) {
       alert("Name cant be empty");
       return;
     }
@@ -605,7 +605,7 @@ export const DataProvider = ({ children }) => {
     let processName = document.getElementById("processName").value;
     let processId = document.getElementById("processId").value;
 
-    if (processName.trim.length == 0 || processId.trim.length == 0) {
+    if (processName.length == 0 || processId.length == 0) {
       alert("Name/Id cant be empty");
       return;
     }
@@ -621,7 +621,7 @@ export const DataProvider = ({ children }) => {
 
   const checkStatus = async () => {
     let processName = document.getElementById("checkStatusInput").value;
-    if (processName.trim.length == 0) {
+    if (processName.length == 0) {
       alert("Name cant be empty");
       return;
     }

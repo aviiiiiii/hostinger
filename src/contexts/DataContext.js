@@ -591,6 +591,11 @@ export const DataProvider = ({ children }) => {
   const sendApiRequest = async () => {
     let apiInputText = document.getElementById("apiInputText").value;
 
+    if (apiInputText.trim.length == 0) {
+      alert("Name cant be empty");
+      return;
+    }
+
     let response = await fetch(serverURL + "/apiSendRequest/" + apiInputText);
     let statusCode = await response.status;
     setApiSyncResponse(statusCode);
@@ -599,6 +604,11 @@ export const DataProvider = ({ children }) => {
   const processApiRequest = async () => {
     let processName = document.getElementById("processName").value;
     let processId = document.getElementById("processId").value;
+
+    if (processName.trim.length == 0 || processId.trim.length == 0) {
+      alert("Name/Id cant be empty");
+      return;
+    }
 
     let response = await fetch(
       serverURL + "/processApiRequest/" + processName + "/" + processId
@@ -611,7 +621,10 @@ export const DataProvider = ({ children }) => {
 
   const checkStatus = async () => {
     let processName = document.getElementById("checkStatusInput").value;
-
+    if (processName.trim.length == 0) {
+      alert("Name cant be empty");
+      return;
+    }
     let response = await fetch(serverURL + "/checkprocessSatus/" + processName);
     let data = await response.text();
     // alert(data);

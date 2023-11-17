@@ -49,6 +49,10 @@ function Dummy() {
                 S3StaticWebpage
               </a>
             </li>
+            <li>
+              {" "}
+              <a href="/s3StaticWebpage">S3StaticWebpage-insecure</a>
+            </li>
           </ul>
         </div>
       </p>

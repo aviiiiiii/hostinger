@@ -6,13 +6,13 @@ function ProcessingAPIrequest() {
   return (
     <div className="processingingAPIrequest">
       <label htmlFor="processName">
-        Name : <input type="text" id="processName" />
+        Name : <input type="text" id="processName" required />
       </label>
       <br />
       <br />
       <label htmlFor="processId">
         Id &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:{" "}
-        <input type="text" id="processId" />
+        <input type="text" id="processId" required />
       </label>
       <br />
       <br />

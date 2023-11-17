@@ -1,7 +1,7 @@
 import { createContext, useEffect, useState } from "react";
 import React from "react";
 import AwsS3TextFile from "../pages/AwsS3TextFile";
-import { FaAngleDoubleRight } from "react-icons/fa";
+import { FaAngleDoubleRight, FaArrowCircleRight } from "react-icons/fa";
 
 const DataContext = createContext();
 
@@ -20,6 +20,12 @@ export const DataProvider = ({ children }) => {
   );
 
   const [countries, setCountries] = useState([]);
+  const [apiAsyncResponse, setApiAsyncResponse] = useState("Not Received");
+  const [apiSyncResponse, setApiSyncResponse] = useState("Not received");
+
+  const [processApiResponse, setProcessApiResponse] = useState("Not received");
+  const [checkStatusResponse, setCheckStatusResponse] =
+    useState("Not received");
 
   ///////////////////////////////////////////////////////////
 
@@ -44,6 +50,8 @@ export const DataProvider = ({ children }) => {
     ////////////////////////////////////////
     // searchImage();
     setImageURL(imageURL);
+    setApiAsyncResponse(apiAsyncResponse);
+    setApiSyncResponse(apiSyncResponse);
   }, []);
 
   //////////////////////////////////////////////////////////////////////////////
@@ -539,6 +547,7 @@ export const DataProvider = ({ children }) => {
     alert(data);
 
     putData(data);
+    getTextFile();
   };
 
   const putData = async (country) => {
@@ -578,6 +587,38 @@ export const DataProvider = ({ children }) => {
   };
 
   //////////////////////////////////////////////////////////////////////////////////////
+
+  const sendApiRequest = async () => {
+    let apiInputText = document.getElementById("apiInputText").value;
+
+    let response = await fetch(serverURL + "/apiSendRequest/" + apiInputText);
+    let statusCode = await response.status;
+    setApiSyncResponse(statusCode);
+  };
+
+  const processApiRequest = async () => {
+    let processName = document.getElementById("processName").value;
+    let processId = document.getElementById("processId").value;
+
+    let response = await fetch(
+      serverURL + "/processApiRequest/" + processName + "/" + processId
+    );
+    let data = await response.text();
+    // alert(data);
+    setProcessApiResponse(data);
+    setApiAsyncResponse(data);
+  };
+
+  const checkStatus = async () => {
+    let processName = document.getElementById("checkStatusInput").value;
+
+    let response = await fetch(serverURL + "/checkprocessSatus/" + processName);
+    let data = await response.text();
+    // alert(data);
+    setCheckStatusResponse(data);
+  };
+
+  ////////////////////////////////////////////////////////////////////////////////////////
 
   return (
     <DataContext.Provider
@@ -625,6 +666,16 @@ export const DataProvider = ({ children }) => {
         setCountries,
         addCountry,
         deleteCountry,
+
+        sendApiRequest,
+        apiAsyncResponse,
+        setApiAsyncResponse,
+        apiSyncResponse,
+        setApiSyncResponse,
+        processApiRequest,
+        processApiResponse,
+        checkStatus,
+        checkStatusResponse,
       }}
     >
       {children}

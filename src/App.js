@@ -11,6 +11,8 @@ import DashBoard from "./pages/DashBoard";
 import Transactions from "./pages/Transactions";
 import AwsAPIandLambda from "./pages/AwsAPIandLambda";
 import AwsS3TextFile from "./pages/AwsS3TextFile";
+import SendingAPIrequest from "./pages/SendingAPIrequest";
+import ProcessingAPIrequest from "./pages/ProcessingAPIrequest";
 import { DataProvider } from "./contexts/DataContext";
 import Header from "./components/expenseTracker/Header";
 
@@ -29,6 +31,16 @@ function App() {
           <Route exact path="/photo" element={<Photo />} />
           <Route exact path="/awsAPIandLambda" element={<AwsAPIandLambda />} />
           <Route exact path="/awsS3TextFile" element={<AwsS3TextFile />} />
+          <Route
+            exact
+            path="/sendingAPIrequest"
+            element={<SendingAPIrequest />}
+          />
+          <Route
+            exact
+            path="/processingAPIrequest"
+            element={<ProcessingAPIrequest />}
+          />
           <Route
             exact
             path="/expenseTracker"

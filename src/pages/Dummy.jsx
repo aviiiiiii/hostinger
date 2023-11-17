@@ -34,6 +34,14 @@ function Dummy() {
             </li>
             <li>
               {" "}
+              <a href="/sendingAPIrequest">sendingAPIrequest</a>
+            </li>
+            <li>
+              {" "}
+              <a href="/processingAPIrequest">processingAPIrequest</a>
+            </li>
+            <li>
+              {" "}
               <a
                 href="http://sample-static-website-avi.s3-website.ap-south-1.amazonaws.com/"
                 target="blank"

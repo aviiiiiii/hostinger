@@ -13,6 +13,7 @@ import AwsAPIandLambda from "./pages/AwsAPIandLambda";
 import AwsS3TextFile from "./pages/AwsS3TextFile";
 import SendingAPIrequest from "./pages/SendingAPIrequest";
 import ProcessingAPIrequest from "./pages/ProcessingAPIrequest";
+import StonePaperScissor from "./pages/StonePaperScissor";
 import { DataProvider } from "./contexts/DataContext";
 import Header from "./components/expenseTracker/Header";
 
@@ -53,6 +54,11 @@ function App() {
                 </div>
               </>
             }
+          />
+          <Route
+            exact
+            path="/stonePaperScissor"
+            element={<StonePaperScissor />}
           />
           <Route exact path="/*" element={<PageNotFound />} />
         </Routes>

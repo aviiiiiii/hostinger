@@ -27,6 +27,10 @@ export const DataProvider = ({ children }) => {
   const [checkStatusResponse, setCheckStatusResponse] =
     useState("Not received");
 
+  const [systemValue, setSystemValue] = useState("Null");
+  const [userValue, setUserValue] = useState("Null");
+  const [spsResult, setSpsResult] = useState("Null");
+
   ///////////////////////////////////////////////////////////
 
   useEffect(() => {
@@ -52,6 +56,8 @@ export const DataProvider = ({ children }) => {
     setImageURL(imageURL);
     setApiAsyncResponse(apiAsyncResponse);
     setApiSyncResponse(apiSyncResponse);
+    setSystemValue(systemValue);
+    setUserValue(userValue);
   }, []);
 
   //////////////////////////////////////////////////////////////////////////////
@@ -631,6 +637,38 @@ export const DataProvider = ({ children }) => {
     setCheckStatusResponse(data);
   };
 
+  const performSps = () => {
+    let randInt = Math.floor(Math.random() * 3);
+    let options = ["Stone", "Paper", "Scissor"];
+    let radios = document.getElementsByName("spsInput");
+    let userInput, systemInput;
+    for (let radio of radios) {
+      if (radio.checked) {
+        userInput = radio.value;
+        systemInput = options[randInt];
+        break;
+      }
+    }
+    let spsResult2;
+    if (userInput == systemInput) {
+      spsResult2 = "No result";
+    } else {
+      if (
+        (userInput == "Stone" && systemInput == "Scissor") ||
+        (userInput == "Paper" && systemInput == "Stone") ||
+        (userInput == "Scissor" && systemInput == "Paper")
+      ) {
+        spsResult2 = "User Wins";
+      } else {
+        spsResult2 = "System Wins";
+      }
+    }
+
+    setUserValue(userInput);
+    setSystemValue(systemInput);
+    setSpsResult(spsResult2);
+  };
+
   ////////////////////////////////////////////////////////////////////////////////////////
 
   return (
@@ -689,6 +727,10 @@ export const DataProvider = ({ children }) => {
         processApiResponse,
         checkStatus,
         checkStatusResponse,
+        systemValue,
+        performSps,
+        userValue,
+        spsResult,
       }}
     >
       {children}

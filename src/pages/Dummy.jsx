@@ -53,6 +53,10 @@ function Dummy() {
               {" "}
               <a href="/s3StaticWebpage">S3StaticWebpage-insecure</a>
             </li>
+            <li>
+              {" "}
+              <a href="/stonePaperScissor">stonePaperScissor</a>
+            </li>
           </ul>
         </div>
       </p>

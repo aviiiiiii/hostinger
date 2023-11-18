@@ -1,8 +1,9 @@
-
 function PageNotFound() {
   return (
-    <div>PageNotFound</div>
-  )
+    <div className="dummy">
+      <p>Wrong endpoint :(</p>
+    </div>
+  );
 }
 
-export default PageNotFound
+export default PageNotFound;

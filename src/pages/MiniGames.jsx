@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import DataContext from "../contexts/DataContext";
 
-function StonePaperScissor() {
+function MiniGames() {
   const { systemValue, performSps, userValue, spsResult } =
     useContext(DataContext);
   return (
@@ -25,4 +25,4 @@ function StonePaperScissor() {
     </div>
   );
 }
-export default StonePaperScissor;
+export default MiniGames;

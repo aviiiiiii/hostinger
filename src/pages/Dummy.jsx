@@ -55,7 +55,7 @@ function Dummy() {
             </li>
             <li>
               {" "}
-              <a href="/stonePaperScissor">stonePaperScissor</a>
+              <a href="/miniGames">miniGames</a>
             </li>
           </ul>
         </div>

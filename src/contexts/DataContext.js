@@ -31,6 +31,9 @@ export const DataProvider = ({ children }) => {
   const [userValue, setUserValue] = useState("Null");
   const [spsResult, setSpsResult] = useState("Null");
 
+  const [userHcValue, SetUserHcValue] = useState("Null");
+  const [systemHcValue, setSystemHcValue] = useState("Null");
+  const [hcScore, setHcScore] = useState(0);
   ///////////////////////////////////////////////////////////
 
   useEffect(() => {
@@ -669,6 +672,25 @@ export const DataProvider = ({ children }) => {
     setSpsResult(spsResult2);
   };
 
+  const peformHc = () => {
+    let userHcInput = document.getElementById("hcInput").value;
+    if (userHcInput < 0 || userHcInput > 6) {
+      alert("enter between 0 and 6");
+      return;
+    }
+    let randInt = Math.floor(Math.random() * 7);
+    SetUserHcValue(userHcInput);
+    setSystemHcValue(randInt);
+    if (userHcInput == randInt) {
+      alert("OUT!!!!  Total is " + hcScore);
+      SetUserHcValue("null");
+      setSystemHcValue("null");
+      setHcScore(0);
+      return;
+    }
+    setHcScore(hcScore + parseInt(userHcInput));
+  };
+
   ////////////////////////////////////////////////////////////////////////////////////////
 
   return (
@@ -727,10 +749,17 @@ export const DataProvider = ({ children }) => {
         processApiResponse,
         checkStatus,
         checkStatusResponse,
+
         systemValue,
         performSps,
         userValue,
         spsResult,
+        peformHc,
+        SetUserHcValue,
+        userHcValue,
+        systemHcValue,
+        setHcScore,
+        hcScore,
       }}
     >
       {children}

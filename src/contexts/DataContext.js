@@ -644,13 +644,18 @@ export const DataProvider = ({ children }) => {
     let randInt = Math.floor(Math.random() * 3);
     let options = ["Stone", "Paper", "Scissor"];
     let radios = document.getElementsByName("spsInput");
-    let userInput, systemInput;
+    let userInput = "",
+      systemInput;
     for (let radio of radios) {
       if (radio.checked) {
         userInput = radio.value;
         systemInput = options[randInt];
         break;
       }
+    }
+    if (userInput == "") {
+      alert("Select an input");
+      return;
     }
     let spsResult2;
     if (userInput == systemInput) {
@@ -674,7 +679,7 @@ export const DataProvider = ({ children }) => {
 
   const peformHc = () => {
     let userHcInput = document.getElementById("hcInput").value;
-    if (userHcInput < 0 || userHcInput > 6) {
+    if (userHcInput < 0 || userHcInput > 6 || userHcInput == "") {
       alert("enter between 0 and 6");
       return;
     }

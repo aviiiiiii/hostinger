@@ -40,7 +40,7 @@ function MiniGames() {
       <br />
       <br />
       <br />
-      <div className="handCricket">
+      {/* <div className="handCricket">
         HandCricket
         <div className="hcInputDiv">
           <br />
@@ -52,7 +52,7 @@ function MiniGames() {
         <p>SystemValue is :&nbsp;{systemHcValue}</p>
         <p>UserValue is :&nbsp;{userHcValue}</p>
         <p>Score is :&nbsp;{hcScore}</p>
-      </div>
+      </div>*/}
     </div>
   );
 }

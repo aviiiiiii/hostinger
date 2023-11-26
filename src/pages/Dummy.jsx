@@ -43,7 +43,7 @@ function Dummy() {
             <li>
               {" "}
               <a
-                href="http://sample-static-website-avi.s3-website.ap-south-1.amazonaws.com/"
+                href="http://sample-static-website-aviii.s3-website.ap-south-1.amazonaws.com/"
                 target="blank"
               >
                 S3StaticWebpage

@@ -28,9 +28,13 @@ function MiniGames() {
           <br />
           <button onClick={performSps}>submit</button>
         </div>
-        <p>SystemValue is :&nbsp;{systemValue}</p>
         <p>UserValue is :&nbsp;{userValue}</p>
+        <p>SystemValue is :&nbsp;{systemValue}</p>
         <p>Result is :&nbsp;{spsResult}</p>
+        <img src={require("../images/SPS/" + userValue + ".png")} />
+        <img src={require("../images/SPS/" + systemValue + ".png")} />
+        <img src={require("../images/SPS/" + spsResult + ".png")} />
+        {/* change the output to the img */}
       </div>
       <br />
       <br />

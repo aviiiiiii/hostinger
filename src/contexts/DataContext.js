@@ -27,9 +27,9 @@ export const DataProvider = ({ children }) => {
   const [checkStatusResponse, setCheckStatusResponse] =
     useState("Not received");
 
-  const [systemValue, setSystemValue] = useState("Null");
-  const [userValue, setUserValue] = useState("Null");
-  const [spsResult, setSpsResult] = useState("Null");
+  const [systemValue, setSystemValue] = useState("white");
+  const [userValue, setUserValue] = useState("white");
+  const [spsResult, setSpsResult] = useState("white");
 
   const [userHcValue, SetUserHcValue] = useState("Null");
   const [systemHcValue, setSystemHcValue] = useState("Null");
@@ -500,7 +500,7 @@ export const DataProvider = ({ children }) => {
     // "https://kind-bear-school-uniform.cyclic.app//https://zaq7cz8wjd.execute-api.ap-south-1.amazonaws.com/new",
 
     const response = await fetch(
-      "https://zaq7cz8wjd.execute-api.ap-south-1.amazonaws.com/new",
+      "https://0e4w64s0ff.execute-api.ap-south-1.amazonaws.com/new",
       {
         method: "GET",
       }
@@ -530,7 +530,7 @@ export const DataProvider = ({ children }) => {
 
   const getTextFile = async () => {
     const response = await fetch(
-      "https://sample-storage-avi.s3.ap-south-1.amazonaws.com/List_of_countries.txt"
+      "https://sample-storage-aviii.s3.ap-south-1.amazonaws.com/List_of_countries.txt"
     );
 
     const data = await response.text();
@@ -546,9 +546,9 @@ export const DataProvider = ({ children }) => {
       alert("Empty");
       return;
     }
-
+    // let oldurl = "https://sample-storage-avi.s3.ap-south-1.amazonaws.com/List_of_countries.txt";
     const response = await fetch(
-      "https://sample-storage-avi.s3.ap-south-1.amazonaws.com/List_of_countries.txt"
+      "https://sample-storage-aviii.s3.ap-south-1.amazonaws.com/List_of_countries.txt"
     );
     let data = await response.text();
     console.log(data);
@@ -559,9 +559,10 @@ export const DataProvider = ({ children }) => {
     getTextFile();
   };
 
+  // let oldUrl = "https://zaq7cz8wjd.execute-api.ap-south-1.amazonaws.com/new/sample-storage-avi/List_of_countries.txt";
   const putData = async (country) => {
     await fetch(
-      "https://zaq7cz8wjd.execute-api.ap-south-1.amazonaws.com/new/sample-storage-avi/List_of_countries.txt",
+      "https://0e4w64s0ff.execute-api.ap-south-1.amazonaws.com/new/sample-storage-aviii/List_of_countries.txt",
       {
         method: "PUT",
         headers: {

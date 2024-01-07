@@ -57,6 +57,10 @@ function Dummy() {
               {" "}
               <a href="/miniGames">miniGames</a>
             </li>
+            <li>
+              {" "}
+              <a href="https://html-css-udemy.netlify.app/" target="blank">html-css-udemy</a>
+            </li>
           </ul>
         </div>
       </p>

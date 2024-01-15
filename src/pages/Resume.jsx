@@ -31,7 +31,7 @@ function Resume() {
           <h2>Experience</h2>
           <ul class="resume-ul">
             <li>
-              <strong>Automation Tester</strong> - Tata Consultancy Services
+              <strong>Systems Engineer</strong> - Tata Consultancy Services
               <p>July 2021 - Present</p>
               <br />
               <p>

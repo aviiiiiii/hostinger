@@ -2,7 +2,7 @@ function Dummy() {
   return (
     <div className="dummy">
       <p>Innum onnum pannala :( Pannuvom.....</p>
-      {/* <p>Hello Amma </p> */}
+    
       <br />
       <br />
       <p>

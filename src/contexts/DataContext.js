@@ -697,6 +697,38 @@ export const DataProvider = ({ children }) => {
     setHcScore(hcScore + parseInt(userHcInput));
   };
 
+  const clickingRadioOne = () =>{
+    let isOneSelected = document.getElementById("slidingRadio1").checked
+    let isTwoSelected = document.getElementById("slidingRadio2").checked
+    let isThreeSelected = document.getElementById("slidingRadio3").checked
+    if(isOneSelected){
+      if (isTwoSelected && isThreeSelected){
+          document.getElementById("slidingRadio2").checked = false
+      }
+    }
+  }
+  const clickingRadioTwo = () =>{
+    let isOneSelected = document.getElementById("slidingRadio1").checked
+    let isTwoSelected = document.getElementById("slidingRadio2").checked
+    let isThreeSelected = document.getElementById("slidingRadio3").checked
+    if(isTwoSelected){
+      if (isTwoSelected && isOneSelected){
+          document.getElementById("slidingRadio3").checked = false
+      }
+    }
+  }
+
+  const clickingRadioThree = () =>{
+    let isOneSelected = document.getElementById("slidingRadio1").checked
+    let isTwoSelected = document.getElementById("slidingRadio2").checked
+    let isThreeSelected = document.getElementById("slidingRadio3").checked
+    if(isThreeSelected){
+      if (isTwoSelected && isOneSelected){
+          document.getElementById("slidingRadio1").checked = false
+      }
+    }
+  }
+
   ////////////////////////////////////////////////////////////////////////////////////////
 
   return (
@@ -766,6 +798,12 @@ export const DataProvider = ({ children }) => {
         systemHcValue,
         setHcScore,
         hcScore,
+
+        ///////
+        clickingRadioOne,
+        clickingRadioTwo,
+        clickingRadioThree
+
       }}
     >
       {children}

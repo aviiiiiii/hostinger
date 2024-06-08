@@ -10,7 +10,7 @@ export const DataProvider = ({ children }) => {
   const [vehicleList, setVehicleList] = useState([]);
 
   // const serverURL = "https://real-gold-katydid-tam.cyclic.app";
-  const serverURL = "https://hostingserver.netlify.app";
+  const serverURL = "https://cyclic-ycjj.onrender.com/";
   // const serverURL = "http://localhost:5000";
   let newEntry;
 

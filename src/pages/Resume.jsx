@@ -67,14 +67,14 @@ function Resume() {
         <div class="resume-section">
           <h2>Technical Skills</h2>
           <ul class="resume-ul">
+          <li>
+              <span>&#8226;</span> Amazon Web Services
+            </li>
             <li>
               <span>&#8226;</span> Java
             </li>
             <li>
               <span>&#8226;</span> HTML, CSS and JavaScript
-            </li>
-            <li>
-              <span>&#8226;</span> Amazon Web Services
             </li>
             <li>
               <span>&#8226;</span> Selenium and Cucumber BDD
@@ -89,14 +89,19 @@ function Resume() {
         </div>
 
         <div class="resume-section">
+          <h2>Certifications</h2>
+          <ul class="resume-ul">
+          <li>
+              <span>&#8226;</span> AWS Certified Solution Architect - Associate
+            </li>
+            <li>
+              <span>&#8226;</span> AWS Certified Cloud Practitioner
+            </li>
+          </ul>
+          <br/>
+          <br/>
           <h2>Online Certificate courses</h2>
           <ul class="resume-ul">
-            <li>
-              <span>&#8226;</span> Soon to be updated :(
-            </li>
-            <li>
-              <span>&#8226;</span> AWS Certified Cloud Practitioner (AWS)
-            </li>
             <li>
               <span>&#8226;</span> Microsoft Azure Fundamentals : AZ-900
               (Microsoft)
@@ -193,7 +198,7 @@ function Resume() {
             <li>
               <strong> TollGate And Vehicle Entry</strong>
               <span> - </span>
-              <a href="http://aviiiiii.site/tolllist" target="_blank">
+              <a href="http://aviiiiii.site/tollList" target="_blank">
                 Click Here
               </a>
               <p>
@@ -208,7 +213,7 @@ function Resume() {
               </p>
               <p>
                 <span>&#8226;</span> BackEnd is done with Express JS and hosted
-                in Cyclic.
+                in Render.
               </p>
             </li>
 
@@ -229,7 +234,7 @@ function Resume() {
               </p>
               <p>
                 <span>&#8226;</span> BackEnd is done with Express JS and hosted
-                in Cyclic.
+                in Render.
               </p>
             </li>
           </ul>

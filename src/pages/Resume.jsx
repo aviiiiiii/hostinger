@@ -198,7 +198,7 @@ function Resume() {
             <li>
               <strong> TollGate And Vehicle Entry</strong>
               <span> - </span>
-              <a href="http://aviiiiii.site/tollList" target="_blank">
+              <a href="http://aviiiiii.online/tollList" target="_blank">
                 Click Here
               </a>
               <p>
@@ -220,7 +220,7 @@ function Resume() {
             <li>
               <strong> Expense Tracker</strong>
               <span> - </span>
-              <a href="http://aviiiiii.site/expenseTracker" target="_blank">
+              <a href="http://aviiiiii.online/expenseTracker" target="_blank">
                 Click Here
               </a>
               <p>

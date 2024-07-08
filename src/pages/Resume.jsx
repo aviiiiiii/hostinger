@@ -19,7 +19,7 @@ function Resume() {
           </div>
         </header>
 
-        <div class="resume-section">
+        <div class="resume-section"> 
           <h2>Carrer Objective</h2>
           <p>
             Seeking challenging opportunitieswhere I can fully utilize my

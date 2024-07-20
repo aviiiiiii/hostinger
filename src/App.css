@@ -375,3 +375,18 @@ iframe {
 }
 
 /* 3 Radio */
+
+
+/* HomePage */
+
+.Homepage-title{
+ text-align: center;
+ font-size: 40px;
+ margin: 20px;
+}
+
+.Homepage-items{
+  text-align: center;
+  list-style-type: none;
+  font-size: 20px;
+}

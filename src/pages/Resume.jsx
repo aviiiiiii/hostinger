@@ -28,40 +28,42 @@ function Resume() {
         </div>
 
         <div class="resume-section">
-          <h2>Experience</h2>
+          <h2>Work Experience</h2>
           <ul class="resume-ul">
             <li>
-              <strong>Systems Engineer</strong> - Tata Consultancy Services
-              <p>July 2021 - Present</p>
-              <br />
-              <p>
-                <span>&#8226;</span> Having 2+ years of experience in Automation
-                API/UI testing of Web Based Applications.
-                <br />
-                <span>&#8226;</span> Responsible for test planning, creating
-                Test cases, functional and Automationtesting for those Test
-                cases and QA sign-off for the Ciena BluePlanet application.
-                <br />
-                <span>&#8226;</span> Experience in automating Ciena BluePlanet
-                application using SeleniumWebdriver with Java in cucumber
-                framework.
-                <br />
-                <span>&#8226;</span> Experience in automating(API automation)
-                CBP application with restAssured Java library and also via
-                Postman collections with JS.
-                <br />
-                <span>&#8226;</span> Experience in automating Netco
-                application(Myquote) using SeleniumWebdriver with Python
-                programming language.
-                <br />
-                <span>&#8226;</span> Having Good experience in the Object
-                Oriented Programming (OOPS) concepts.
-                <br />
-                <span>&#8226;</span> Having Good experience on Agile Methodology
-                and JIRA
-              </p>
-            </li>
-          </ul>
+          <span>&#8226;</span> Joined Tata Consultancy Services(TCS) as <strong>Systems Engineer in July 2021.</strong><br />
+          <span>&#8226;</span> Having 3+ years of experience in Automation UI/API testing of Web Based Applications.<br />
+          <span>&#8226;</span> Having Good experience in the Object Oriented Programming (OOPS) concepts<br />
+          <span>&#8226;</span> Having Good experience on Agile Methodology and JIRA<br />
+          <br />
+          <span>&#8226;</span><strong> SMB QA Team Automation Tester (April 2024 – Present)</strong><br />
+          <span>&emsp;&#8226;</span> Implementing UI automation for Web Based application (NEED TO CHECK) using
+Python and Selenium with the PageObjectModel framework.<br />
+          <span>&emsp;&#8226;</span> Designing, developing, and maintaining automated test scripts to ensure high-quality software.<br />
+          <span>&emsp;&#8226;</span> Explored Cypress and BrowserStack as part of proof of concept (POC) initiatives. (NEED TO CHECK)<br />
+          <br />
+          <span>&#8226;</span><strong> Digico QA Team Component Tester (April 2022 – March 2024)</strong><br />
+          <span>&emsp;&#8226;</span> Fully responsible for manual and automation testing of the CienaBP application.<br />
+          <span>&emsp;&#8226;</span> Developed a deep understanding of application design to create comprehensive
+test cases.<br />
+          <span>&emsp;&#8226;</span> Collaborated with cross-functional teams to identify and resolve defects and
+improve testing processes.<br />
+          <span>&emsp;&#8226;</span> Executed and automated test cases for both API and UI testing.<br />
+          <span>&emsp;&#8226;</span> Initially focused on UI automation using Selenium and Java with the Cucumber
+framework.<br />
+          <span>&emsp;&#8226;</span> Implemented API automation using Java with the Rest-Assured library and
+Postman collections.<br />
+          <span>&emsp;&#8226;</span> Improved overall testing efficiency and accuracy through automated regression
+and sanity scenarios.<br />
+          <span>&emsp;&#8226;</span> Successfully reduced regression and sanity test timelines through API automation<br />
+          <br />
+          <span>&#8226;</span><strong>Global QA Team Automation Tester (September 2021 – March 2022)</strong><br />
+          <span>&emsp;&#8226;</span> Done UI automation for the Web based application (NEED TO CHECK) using Python
+and Selenium with the PageObjectModel framework.<br />
+          <span>&emsp;&#8226;</span> Developed and maintained automated test scripts to ensure seamless user
+experiences.<br />
+          <span>&emsp;&#8226;</span> Contributed to improving test coverage and reducing manual testing efforts.<br />
+          </li></ul>
         </div>
 
         <div class="resume-section">

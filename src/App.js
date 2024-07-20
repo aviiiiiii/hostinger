@@ -6,6 +6,7 @@ import TollList from "./pages/TollList";
 import PageNotFound from "./pages/PageNotFound";
 import Resume from "./pages/Resume";
 import Dummy from "./pages/Dummy";
+import HomePage from "./pages/HomePage";
 import Photo from "./pages/Photo";
 import DashBoard from "./pages/DashBoard";
 import Transactions from "./pages/Transactions";
@@ -25,7 +26,8 @@ function App() {
     <DataProvider>
       <Router>
         <Routes>
-          <Route exact path="/" element={<Dummy />} />
+          <Route exact path="/" element={<HomePage />} />
+          <Route exact path="/others" element={<Dummy />} />
           <Route exact path="/resume" element={<Resume />} />
           <Route exact path="/tollList" element={<TollList />} />
           <Route exact path="/vehicleLogs" element={<VehicleLogs />} />

@@ -144,7 +144,7 @@ export const DataProvider = ({ children }) => {
   };
 
   const funcDeleteTransaction = async (id) => {
-    await fetch(serverURL + `/  eleteTransaction/${id}`, { method: "DELETE" });
+    await fetch(serverURL + `/deleteTransaction/${id}`, { method: "DELETE" });
   };
 
   const updateYear = (event) => {

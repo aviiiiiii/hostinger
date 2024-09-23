@@ -97,6 +97,9 @@ experiences.<br />
               <span>&#8226;</span> AWS Certified Solution Architect - Associate
             </li>
             <li>
+              <span>&#8226;</span> AWS Certified AI Practitioner
+            </li>
+            <li>
               <span>&#8226;</span> AWS Certified Cloud Practitioner
             </li>
           </ul>

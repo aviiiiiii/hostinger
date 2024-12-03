@@ -94,6 +94,9 @@ experiences.<br />
           <h2>Certifications</h2>
           <ul class="resume-ul">
           <li>
+              <span>&#8226;</span> AWS Certified Developer - Associate
+            </li>
+          <li>
               <span>&#8226;</span> AWS Certified Solution Architect - Associate
             </li>
             <li>

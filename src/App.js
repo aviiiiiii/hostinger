@@ -16,6 +16,7 @@ import SendingAPIrequest from "./pages/SendingAPIrequest";
 import ProcessingAPIrequest from "./pages/ProcessingAPIrequest";
 import MiniGames from "./pages/MiniGames";
 import ThreeRadio from "./pages/ThreeRadio";
+import TeamTaskManagement from "./pages/TeamTaskManagement";
 import { DataProvider } from "./contexts/DataContext";
 import Header from "./components/expenseTracker/Header";
 
@@ -60,6 +61,7 @@ function App() {
           />
           <Route exact path="/miniGames" element={<MiniGames />} />
           <Route exact path="/threeRadio" element={<ThreeRadio />} />
+          <Route exact path="/teamTaskManagement" element={<TeamTaskManagement />} />
           <Route exact path="/*" element={<PageNotFound />} />
         </Routes>
       </Router>

@@ -19,6 +19,10 @@ function HomePage() {
               {" "}
               <a href="/expenseTracker">ExpenseTracker</a>
             </li>
+            <li>
+              {" "}
+              <a href="/teamTaskManagement">Team Task Management</a>
+            </li>
           </ul>
       </div>
   );

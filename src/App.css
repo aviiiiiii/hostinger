@@ -119,6 +119,7 @@ Button:hover {
 #deleteSelect {
   font-size: larger;
 }
+
 /* Dummy Page */
 .dummy p {
   display: flex;
@@ -198,10 +199,12 @@ img.dummy {
 .container {
   display: flex;
 }
+
 .dashboard {
   width: 50%;
   background-color: #dcf8c6;
 }
+
 .transactions {
   width: 50%;
   background-color: #f5e8c7;
@@ -220,12 +223,14 @@ img.dummy {
 .monthly-header {
   display: flex;
 }
+
 .yearly-header p,
 .monthly-header p {
   width: 50%;
   text-align: center;
   font-size: 1.6rem;
 }
+
 .yearly-header form,
 .monthly-header form {
   width: 50%;
@@ -233,12 +238,14 @@ img.dummy {
   align-items: center;
   align-self: center;
 }
+
 .yearly-header form input,
 .monthly-header form input {
   text-align: center;
   font-size: 1.2rem;
   width: 180px;
 }
+
 .yearly-header form button,
 .monthly-header form button {
   background-color: #ece5dd;
@@ -249,6 +256,7 @@ img.dummy {
 .income-and-expense {
   display: flex;
 }
+
 .income,
 .expense {
   width: 50%;
@@ -274,12 +282,15 @@ img.dummy {
   display: flex;
   padding-left: 20px;
 }
+
 .filter-inputs {
   width: 50%;
 }
+
 .filter-buttons {
   width: 50%;
 }
+
 .filter-input-column select {
   width: 133px;
 }
@@ -362,7 +373,7 @@ iframe {
 
 /* 3 Radio */
 
-.radio-container{
+.radio-container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -370,7 +381,7 @@ iframe {
   height: 100vh;
 }
 
-.radio-container *{
+.radio-container * {
   scale: 1.2;
 }
 
@@ -379,14 +390,48 @@ iframe {
 
 /* HomePage */
 
-.Homepage-title{
- text-align: center;
- font-size: 40px;
- margin: 20px;
+.Homepage-title {
+  text-align: center;
+  font-size: 40px;
+  margin: 20px;
 }
 
-.Homepage-items{
+.Homepage-items {
   text-align: center;
   list-style-type: none;
   font-size: 20px;
+}
+
+/* Team Task Management */
+.taskManagementTitle {
+  text-align: center;
+  width: 100%;
+  /* display: block; */
+}
+
+.taskContainer {
+  display: flex;
+}
+
+.left-column {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+}
+
+.right-column {
+  width: 50%;
+}
+
+.box {
+  border: 1px solid black;
+  padding: 20px;
+}
+
+.half-height {
+  height: 50vh;
+}
+
+.full-height {
+  height: 100vh;
 }

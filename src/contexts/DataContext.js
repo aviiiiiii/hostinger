@@ -35,7 +35,11 @@ export const DataProvider = ({ children }) => {
   const [userHcValue, SetUserHcValue] = useState("Null");
   const [systemHcValue, setSystemHcValue] = useState("Null");
   const [hcScore, setHcScore] = useState(0);
-  ///////////////////////////////////////////////////////////
+
+
+
+
+  //////////////////////////////////////////////////
 
   useEffect(() => {
     fetchVehicleList();
@@ -62,6 +66,7 @@ export const DataProvider = ({ children }) => {
     setApiSyncResponse(apiSyncResponse);
     setSystemValue(systemValue);
     setUserValue(userValue);
+
   }, []);
 
   //////////////////////////////////////////////////////////////////////////////
@@ -731,6 +736,43 @@ export const DataProvider = ({ children }) => {
   }
 
   ////////////////////////////////////////////////////////////////////////////////////////
+  const addNewTask = (event)=>{
+    event.preventDefault();
+    const newTask = {
+      taskId: event.target[0].value,
+      taskName: event.target[1].value,
+      assignee: event.target[2].value,
+      taskStatus: event.target[3].value 
+    };
+    alert(JSON.stringify(newTask))
+  }
+
+  const updateTask = (event)=>{
+    event.preventDefault();
+    const newTask = {
+      taskId: event.target[0].value,
+      taskStatus: event.target[1].value
+    };
+    alert(JSON.stringify(newTask))
+  }
+
+  const filterTasks = (event) => {
+    event.preventDefault();
+    if (event.nativeEvent.submitter.name === "filter") {
+      const filterDetails = {
+        taskId: event.target[0].value,
+        taskName: event.target[1].value,
+        assignee: event.target[2].value,
+        taskStatus: event.target[3].value 
+      };
+      fetchTransactionsWithFilter(filterDetails);
+    } else {
+      fetchTransactions();
+      event.target.reset();
+    }
+  };
+
+  //////////////////////////////////////////////////////////////////////////////////////
 
   return (
     <DataContext.Provider
@@ -803,7 +845,12 @@ export const DataProvider = ({ children }) => {
         ///////
         clickingRadioOne,
         clickingRadioTwo,
-        clickingRadioThree
+        clickingRadioThree,
+
+        ///////////
+        addNewTask,
+        updateTask,
+        filterTasks
 
       }}
     >

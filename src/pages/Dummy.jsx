@@ -65,6 +65,10 @@ function Dummy() {
               {" "}
               <a href="/threeRadio">ThreeRadio</a>
             </li>
+            <li>
+              {" "}
+              <a href="/flowDiagram">FlowDiagram</a>
+            </li>
           </ul>
         </div>
       </p>

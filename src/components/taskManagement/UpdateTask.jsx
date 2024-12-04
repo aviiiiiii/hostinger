@@ -4,10 +4,12 @@ function UpdateTask({updateTask}) {
   return (
 
     <div id = 'UpdateTask'>
-        <h2 className='form-header'>New Task</h2>
+        <h2 className='form-header'>Update Task</h2>
         <form id="UpdateTaskForm" onSubmit={updateTask}>
             <label htmlFor='taskId'>Task Id*</label>
             <input id="taskId" type='text' placeholder='Enter Task Id' required></input><br/>
+            <label htmlFor='assignee'>Assignee*</label>
+            <input id="assignee" type='text' placeholder='Enter Assignee' required></input><br/>
             <label htmlFor='taskStatus'>Status*</label>
             <select id='taskStatus' name='taskStatus' required>
                  <option value="" disabled selected>Select Status</option>

@@ -8,7 +8,7 @@ import TaskList from '../components/taskManagement/TaskList';
 
 function TeamTaskManagement() {
 
-  const {addNewTask, updateTask, filterTasks} = useContext(DataContext);
+  const {addNewTask, updateTask, filterTasks, getTasks} = useContext(DataContext);
 
   return (
     <div>
@@ -24,7 +24,7 @@ function TeamTaskManagement() {
       </div> 
       <div class="right-column"> 
         <div class="box full-height">
-          <TaskFilter filterTasks={filterTasks}/>
+          <TaskFilter filterTasks={filterTasks} getTasks={getTasks}/>
           <TaskList />
         </div>
       </div>

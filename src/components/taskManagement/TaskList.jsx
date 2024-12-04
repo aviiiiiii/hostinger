@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
 import DataContext from "../../contexts/DataContext";
-// import TransactionItem from "./TransactionItem";
+import TaskItem from "./TaskItem";
 
 function TaskList() {
-  const { transactions } = useContext(DataContext);
+  const { tasks } = useContext(DataContext);
 
   return (
     <div className="transaction-container">
@@ -18,9 +18,9 @@ function TaskList() {
           </tr>
         </thead>
         <tbody>
-          {/* {transactions.map((item) => (
-            <TransactionItem key={item._id} Item={item} />
-          ))} */}
+          {tasks.map((item) => (
+            <TaskItem key={item._id} Item={item} />
+          ))}
         </tbody>
       </table>
     </div>

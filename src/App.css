@@ -429,9 +429,9 @@ iframe {
 }
 
 .half-height {
-  height: 50vh;
+  height: 50%;
 }
 
 .full-height {
-  height: 100vh;
+  height: 100%;
 }

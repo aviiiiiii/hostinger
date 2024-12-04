@@ -3,6 +3,8 @@ import React from "react";
 import AwsS3TextFile from "../pages/AwsS3TextFile";
 import { FaAngleDoubleRight, FaArrowCircleRight } from "react-icons/fa";
 
+import axios from 'axios';
+
 const DataContext = createContext();
 
 export const DataProvider = ({ children }) => {
@@ -44,6 +46,7 @@ export const DataProvider = ({ children }) => {
   useEffect(() => {
     fetchVehicleList();
     fetchTollList();
+    getTasks();
 
     ///////////////////////////////////////////
     let formattedMonth;
@@ -68,6 +71,11 @@ export const DataProvider = ({ children }) => {
     setUserValue(userValue);
 
   }, []);
+
+  ////////////////////////////////////////////////////
+  const [tasks, setTasks] = useState([]);
+
+
 
   //////////////////////////////////////////////////////////////////////////////
   const date = new Date();
@@ -736,7 +744,10 @@ export const DataProvider = ({ children }) => {
   }
 
   ////////////////////////////////////////////////////////////////////////////////////////
-  const addNewTask = (event)=>{
+
+  const Task_API_URL = 'https://wurnvxsm0i.execute-api.us-east-1.amazonaws.com/First';
+
+  const addNewTask = async (event)=>{
     event.preventDefault();
     const newTask = {
       taskId: event.target[0].value,
@@ -744,7 +755,13 @@ export const DataProvider = ({ children }) => {
       assignee: event.target[2].value,
       taskStatus: event.target[3].value 
     };
-    alert(JSON.stringify(newTask))
+    await axios.post(Task_API_URL +'/task', newTask).then(response => {
+      alert("added successfully")
+      event.target.reset();
+    })
+    .catch(error => {
+      alert(error.response)
+    });
   }
 
   const updateTask = (event)=>{
@@ -771,6 +788,13 @@ export const DataProvider = ({ children }) => {
       event.target.reset();
     }
   };
+
+  const getTasks = async (event) =>{
+    event.preventDefault();
+    const response = await axios.get(Task_API_URL +'/tasks');
+    let body = JSON.parse(response.data.body) 
+    setTasks(body)
+  }
 
   //////////////////////////////////////////////////////////////////////////////////////
 
@@ -850,7 +874,9 @@ export const DataProvider = ({ children }) => {
         ///////////
         addNewTask,
         updateTask,
-        filterTasks
+        filterTasks,
+        getTasks,
+        tasks
 
       }}
     >

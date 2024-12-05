@@ -764,13 +764,27 @@ export const DataProvider = ({ children }) => {
     });
   }
 
-  const updateTask = (event)=>{
+  const updateTask =async (event)=>{
     event.preventDefault();
-    const newTask = {
-      taskId: event.target[0].value,
-      taskStatus: event.target[1].value
+    let taskId =  event.target[0].value
+    const updateTask = {
+      assignee: event.target[1].value,
+      taskStatus: event.target[2].value
     };
-    alert(JSON.stringify(newTask))
+    await axios.put(Task_API_URL +'/task/'+taskId, updateTask).then(response =>{
+      if(response.data.statusCode == 200){
+        alert("updated successfully")
+        event.target.reset();
+      }
+      else{
+        alert(response.data.body);
+      }
+      
+      
+    })
+    .catch(error => {
+      alert(error)
+    });
   }
 
   const filterTasks = (event) => {

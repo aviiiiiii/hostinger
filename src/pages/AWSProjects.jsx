@@ -1,11 +1,19 @@
-function HomePage() {
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { useContext } from "react"
+import DataContext from "../contexts/DataContext"
+
+
+function AWSProjects() {
+
+  const {} = useContext(DataContext);
+
   return (
     <div className="Homepage">
-      <p className="Homepage-title">Juzt an Homepage</p>
+      <p className="Homepage-title">AWS Projects</p>
           <ul className="Homepage-items">
             <li>
               {" "}
-              <a href="/resume">Resume</a>
+              <a href="/teamTaskManagementBlog">Team Task Management</a>
             </li>
             <li>
               {" "}
@@ -21,11 +29,11 @@ function HomePage() {
             </li>
             <li>
               {" "}
-              <a href="/AWSProjects">AWS Projects</a>
+              <a href="/teamTaskManagement">Team Task Management</a>
             </li>
           </ul>
       </div>
   );
 }
 
-export default HomePage;
+export default AWSProjects;

@@ -17,7 +17,8 @@ import ProcessingAPIrequest from "./pages/ProcessingAPIrequest";
 import MiniGames from "./pages/MiniGames";
 import ThreeRadio from "./pages/ThreeRadio";
 import TeamTaskManagement from "./pages/TeamTaskManagement";
-import FlowDiagram from "./pages/FlowDiagram";
+import TeamTaskManagementBlog from "./pages/TeamTaskManagementBlog";
+import AWSProjects from "./pages/AWSProjects";
 import { DataProvider } from "./contexts/DataContext";
 import Header from "./components/expenseTracker/Header";
 
@@ -63,7 +64,8 @@ function App() {
           <Route exact path="/miniGames" element={<MiniGames />} />
           <Route exact path="/threeRadio" element={<ThreeRadio />} />
           <Route exact path="/teamTaskManagement" element={<TeamTaskManagement />} />
-          <Route exact path="/flowDiagram" element={<FlowDiagram />} />
+          <Route exact path="/teamTaskManagementBlog" element={<TeamTaskManagementBlog />} />
+          <Route exact path="/awsProjects" element={<AWSProjects />} />
           
           <Route exact path="/*" element={<PageNotFound />} />
         </Routes>

@@ -3,7 +3,7 @@ import { FaTrash } from "react-icons/fa";
 import DataContext from "../../contexts/DataContext";
 
 function TaskItem({ Item }) {
-  const { deleteOneTransaction } = useContext(DataContext);
+  const { deleteTask } = useContext(DataContext);
 
   return (
     <tr>
@@ -12,8 +12,8 @@ function TaskItem({ Item }) {
       <td>{Item.assignee}</td>
       <td>{Item.taskStatus}</td>
       <td>
-        <form onSubmit={deleteOneTransaction}>
-          <button name={Item._id} type="submit">
+        <form onSubmit={deleteTask}>
+          <button name={Item.taskId} type="submit">
             <FaTrash />
           </button>
         </form>

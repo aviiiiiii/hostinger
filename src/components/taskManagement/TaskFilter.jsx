@@ -21,7 +21,7 @@ function TaskFilter({filterTasks, getTasks}) {
                 <option value='Blocked'>Blocked</option>
             </select><br />
             <button id='filter' name ='filter' type='submit'>Filter Task</button>
-            <button id='reset' name ='reset' type='submit'>Reset</button>
+            <button id='resetFields' name ='resetFields' type='submit'>Reset</button>
             <button id="getTasks" onClick={getTasks}>getTasks</button>      
             </form>
             <hr></hr>

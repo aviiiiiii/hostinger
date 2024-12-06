@@ -756,11 +756,16 @@ export const DataProvider = ({ children }) => {
       taskStatus: event.target[3].value 
     };
     await axios.post(Task_API_URL +'/task', newTask).then(response => {
-      alert("added successfully")
-      event.target.reset();
+      if(response.data.statusCode == 200){
+        alert("updated successfully")
+        event.target.reset();
+      }
+      else{
+        alert(response.data.body);
+      }
     })
     .catch(error => {
-      alert(error.response)
+      alert(error)
     });
   }
 
@@ -775,12 +780,11 @@ export const DataProvider = ({ children }) => {
       if(response.data.statusCode == 200){
         alert("updated successfully")
         event.target.reset();
+        getTasks();
       }
       else{
         alert(response.data.body);
       }
-      
-      
     })
     .catch(error => {
       alert(error)
@@ -788,7 +792,11 @@ export const DataProvider = ({ children }) => {
   }
 
   const filterTasks = (event) => {
+    try{
     event.preventDefault();
+    }catch{
+      //pass
+    }
     if (event.nativeEvent.submitter.name === "filter") {
       const filterDetails = {
         taskId: event.target[0].value,
@@ -798,16 +806,41 @@ export const DataProvider = ({ children }) => {
       };
       fetchTransactionsWithFilter(filterDetails);
     } else {
-      fetchTransactions();
+      console.log(event.target);
       event.target.reset();
+      getTasks();
     }
   };
 
   const getTasks = async (event) =>{
-    event.preventDefault();
+    console.log("Get Tasks");
+    try{
+      event.preventDefault();
+      }catch{
+        //pass
+      }
     const response = await axios.get(Task_API_URL +'/tasks');
-    let body = JSON.parse(response.data.body) 
-    setTasks(body)
+    let body = JSON.parse(response.data.body);
+    setTasks(body);
+  }
+
+  
+  const deleteTask =async (event)=>{
+    event.preventDefault();
+    let taskId =  event.nativeEvent.submitter.name
+    await axios.delete(Task_API_URL +'/task/'+taskId).then(response =>{
+      if(response.data.statusCode == 200){
+        alert("deleted successfully")
+        getTasks();
+        event.target.reset();
+      }
+      else{
+        alert(response.data.body);
+      }
+    })
+    .catch(error => {
+      alert(error)
+    });
   }
 
   //////////////////////////////////////////////////////////////////////////////////////
@@ -890,7 +923,8 @@ export const DataProvider = ({ children }) => {
         updateTask,
         filterTasks,
         getTasks,
-        tasks
+        tasks,
+        deleteTask
 
       }}
     >

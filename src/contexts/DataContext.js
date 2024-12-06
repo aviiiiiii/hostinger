@@ -759,6 +759,7 @@ export const DataProvider = ({ children }) => {
       if(response.data.statusCode == 200){
         alert("updated successfully")
         event.target.reset();
+        getTasks();
       }
       else{
         alert(response.data.body);

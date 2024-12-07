@@ -25,7 +25,7 @@ function AWSProjects() {
             </li>
             <li>
               {" "}
-              <a href="/expenseTracker">ExpenseTracker</a>
+              <a href="/eventsManagement">Events Management</a>
             </li>
             <li>
               {" "}

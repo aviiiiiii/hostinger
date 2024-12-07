@@ -46,7 +46,7 @@ export const DataProvider = ({ children }) => {
   useEffect(() => {
     fetchVehicleList();
     fetchTollList();
-    getTasks();
+    // getTasks();
 
     ///////////////////////////////////////////
     let formattedMonth;

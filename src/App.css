@@ -458,7 +458,7 @@ div.TeamTaskManagementBlogContent ul li {
   margin-bottom: 10px;
 }
 
-.TeamTaskManagementBlogContent {  
+.TeamTaskManagementBlogContent {
   margin: auto;
   background: #fff;
   padding: 20px;
@@ -471,17 +471,274 @@ div.TeamTaskManagementBlogContent ul li {
   color: #333;
 }
 
-.TeamTaskManagementBlogContent img{
+.TeamTaskManagementBlogContent img {
   width: 100%;
   display: block;
-margin-left: auto;
-margin-right: auto;
+  margin-left: auto;
+  margin-right: auto;
   max-width: 800px;
 }
 
-.TeamTaskManagementBlogContent a{
+.TeamTaskManagementBlogContent a {
   display: flex;
   justify-content: center;
-align-items: center;
-  
+  align-items: center;
+
+}
+
+
+
+/* Event Management */
+.eventNavBar nav {
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px;
+  transition: all 0.4s ease;
+  background-color: lightblue;
+}
+
+.eventNavBar nav.sticky {
+  padding: 15px 20px;
+  background: #4070f4;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.eventNavBar nav .nav-content {
+  height: 100%;
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.eventNavBar nav .logo p {
+  font-weight: 500;
+  font-size: 35px;
+  color: #4070f4;
+}
+
+
+
+.eventNavBar .nav-content .nav-links {
+  display: flex;
+}
+
+.eventNavBar .nav-content .nav-links li {
+  list-style: none;
+  margin: 0 8px;
+}
+
+.eventNavBar .nav-links li a {
+  text-decoration: none;
+  color: #0E2431;
+  font-size: 18px;
+  font-weight: 500;
+  padding: 10px 4px;
+  transition: all 0.3s ease;
+}
+
+.eventNavBar .nav-links li a:hover {
+  color: #4070f4;
+}
+
+.eventNavBar nav.sticky .nav-links li a {
+  color: #fff;
+  transition: all 0.4s ease;
+}
+
+.eventNavBar nav.sticky .nav-links li a:hover {
+  color: #0E2431;
+}
+
+.eventNavBackground {
+  height: 100px;
+  width: 100vw;
+  background-color: lightblue;
+}
+
+/* eventsHomePage */
+
+
+.sliderImageDiv{
+    position: relative;
+    width: 100%;
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgb(29, 29, 29);
+}
+
+
+.eventsHomePage .slider_container {
+  position: relative;
+  width: 45%;
+  height: 30rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  overflow: hidden;
+}
+.eventsHomePage .slider {
+  position: relative;
+  width: 400%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  animation: 10s cubic-bezier(1, 0.95, 0.565, 1) sliding infinite;
+}
+.eventsHomePage .slide {
+  position: relative;
+  min-width: 100%;
+  height: 100%;
+}
+.eventsHomePage .slide img, .eventsHomePage .slide p {
+  width: 100%;
+  height: 100%;
+}
+.eventsHomePage .slide .caption {
+  position: absolute;
+  left: 0;
+  bottom: 5%;
+  font-size: 2rem;
+  font-weight: 600;
+  color: white;
+  text-transform: capitalize;
+  background: rgba(0, 0, 0, 0.348);
+  backdrop-filter: blur(10px);
+  padding: 1rem 5rem;
+  border-radius: 0 2rem 2rem 0;
+}
+.eventsHomePage .slide.one {
+  background: rgb(182, 19, 109);
+}
+.eventsHomePage .slide.two {
+  background: rgb(255, 64, 64);
+}
+.eventsHomePage .slide.three {
+  background: rgb(11, 173, 188);
+}
+.eventsHomePage .slide.four {
+  background: rgb(11, 188, 14);
+}
+.eventsHomePage .slide.five {
+  background: rgb(173, 11, 188);
+}
+@keyframes sliding {
+  0% {
+    transform: translateX(0%);
+  }
+  20% {
+    transform: translateX(0%);
+  }
+  25% {
+    transform: translateX(-100%);
+  }
+  45% {
+    transform: translateX(-100%);
+  }
+  50% {
+    transform: translateX(-200%);
+  }
+  70% {
+    transform: translateX(-200%);
+  }
+  75% {
+    transform: translateX(-300%);
+  }
+  95% {
+    transform: translateX(-300%);
+  }
+  100% {
+    transform: translateX(-400%);
+  }
+}
+
+.description p {
+  margin: 50px ;
+  text-align: center; 
+  font-size: 2rem;
+  font-family: "DynaPuff";
+
+ 
+ }
+
+
+/* Footer */
+
+.myFooter{
+  background-color: lightblue;
+}
+
+.myFooter .nav-list li {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.myFooter .nav-list li a:hover:before {
+  margin-left: 0;
+  opacity: 1;
+  visibility: visible;
+}
+
+.myFooter ul, .myFooter ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.myFooter .social-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 23px;
+  font: 900 13px/1 "Lato", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  text-transform: uppercase;
+  color: rgba(96, 0, 0, 0.5);
+}
+.myFooter .social-container .col {
+  border: 1px solid rgb(107, 113, 134);
+}
+
+
+/* EventsPage */
+.cards{
+  margin-left: 75px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.eventsPage .card {
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 1rem 0.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 30%;
+  max-width: 30%;
+}
+
+.eventsPage button {
+  background: #4CAF50;
+  color: #fff;
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+.eventsPage button:hover {
+  background: #45a049;
+}
+
+.card img{
+  width: 300px;
+  height: 165px;
 }

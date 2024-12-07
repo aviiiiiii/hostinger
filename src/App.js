@@ -19,6 +19,12 @@ import ThreeRadio from "./pages/ThreeRadio";
 import TeamTaskManagement from "./pages/TeamTaskManagement";
 import TeamTaskManagementBlog from "./pages/TeamTaskManagementBlog";
 import AWSProjects from "./pages/AWSProjects";
+
+import EventsEventsPage from "./pages/eventsManagement/EventsPage" ;
+import EventsHomePage from "./pages/eventsManagement/HomePage";
+import EventsFeedbackPage from "./pages/eventsManagement/FeedbackPage";
+import EventsAdminPage from "./pages/eventsManagement/AdminPage";
+
 import { DataProvider } from "./contexts/DataContext";
 import Header from "./components/expenseTracker/Header";
 
@@ -66,6 +72,12 @@ function App() {
           <Route exact path="/teamTaskManagement" element={<TeamTaskManagement />} />
           <Route exact path="/teamTaskManagementBlog" element={<TeamTaskManagementBlog />} />
           <Route exact path="/awsProjects" element={<AWSProjects />} />
+
+          <Route exact path="/eventsManagement" element={<EventsHomePage />} />
+          <Route exact path="/eventsManagement/events" element={<EventsEventsPage />} />
+          <Route exact path="/eventsManagement/feedback" element={<EventsFeedbackPage />} />
+          <Route exact path="/eventsManagement/admin" element={<EventsAdminPage />} />
+          
           
           <Route exact path="/*" element={<PageNotFound />} />
         </Routes>

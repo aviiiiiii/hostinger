@@ -55,6 +55,10 @@ function EventsAdminPage() {
                   <label htmlFor="eventTime">Time:</label>
                   <input type="text" id="eventTime" required />
                 </div>
+                <div className="form-group">
+                  <label htmlFor="eventFee">Fee:</label>
+                  <input type="text" id="eventFee" required />
+                </div>
                 <button type="submit">Create Event</button>
               </form>
             </div>

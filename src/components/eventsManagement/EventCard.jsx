@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import DataContext from "../../contexts/DataContext";
 
-function EventCard({ Item }) {
+function EventCard({ Item , togglePopup}) {
   const { deleteOneTransaction } = useContext(DataContext);
     let title = Item.Title;
   return (
@@ -13,7 +13,7 @@ function EventCard({ Item }) {
           <p><strong>Time:</strong> {Item.Time}</p>
           <p><strong>Organizer:</strong> {Item.Organizer}</p>
           <p><strong>Fee:</strong> {Item.Fee}</p>
-          <button id={Item.EventId} name={Item.EventId}>Register</button>
+          <button id={Item.EventId} name={Item.EventId} onClick={togglePopup}>Register</button>
         </div>
   );
 }

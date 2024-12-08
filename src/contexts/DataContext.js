@@ -850,6 +850,11 @@ export const DataProvider = ({ children }) => {
 
   //////////////////////////////////////////////////////////////////////////////////////
 
+  const togglePopup = () =>{
+    console.log("Hi");
+    document.getElementById("popupOverlay").classList.toggle('show'); 
+  }
+
   const showLogin = () =>{
     document.getElementById("AdminLogin").style.display = 'block'; 
     document.getElementById("AdminContent").style.display = 'none';
@@ -917,7 +922,8 @@ export const DataProvider = ({ children }) => {
       Description: event.target[2].value,
       Organizer: event.target[3].value,
       Date: event.target[4].value,
-      Time: event.target[5].value
+      Time: event.target[5].value,
+      Fee: event.target[6].value
     };
     await axios.post(EVENT_API_URL +'/events', newEvent).then(response => {
       if(response.data.statusCode == 200){
@@ -1047,6 +1053,7 @@ export const DataProvider = ({ children }) => {
         deleteTask,
 
         ///////
+        togglePopup,
         showContent,
         showLogin,
         adminLogin,

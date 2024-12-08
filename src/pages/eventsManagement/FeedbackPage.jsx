@@ -15,8 +15,12 @@ function EventsFeedbackPage() {
           <input type="text" id="name" required />
         </div>
         <div className="form-group">
-          <label htmlFor="email">Email:</label>
-          <input type="email" id="email" required />
+          <label htmlFor="eventId">Event Id:</label>
+          <input type="text" id="eventId" required />
+        </div>
+        <div className="form-group">
+          <label htmlFor="rating">Rating:</label>
+          <input type="number" id="rating" required min="1" max="5"/>
         </div>
         <div className="form-group">
           <label htmlFor="message">Message:</label>

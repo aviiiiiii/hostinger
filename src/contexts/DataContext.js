@@ -849,6 +849,30 @@ export const DataProvider = ({ children }) => {
 
   //////////////////////////////////////////////////////////////////////////////////////
 
+  const showLogin = () =>{
+    document.getElementById("AdminLogin").style.display = 'block'; 
+    document.getElementById("AdminContent").style.display = 'none';
+  }
+  const showContent = () =>{
+    document.getElementById("AdminContent").style.display = 'block'; 
+    document.getElementById("AdminLogin").style.display = 'none';
+  }
+
+  const adminLogin = (event) =>{
+    event.preventDefault();
+    let username = event.target[0].value;
+    let password = event.target[1].value;
+    if (username == 'admin' && password == 'adminpw'){
+      document.getElementById("AdminLogin").style.display = 'none';
+      document.getElementById("AdminContent").style.display = 'block'; 
+    }else
+    {
+      alert("Invalid username/password");
+      event.target.reset();
+    }
+  }
+
+
   return (
     <DataContext.Provider
       value={{
@@ -928,7 +952,13 @@ export const DataProvider = ({ children }) => {
         filterTasks,
         getTasks,
         tasks,
-        deleteTask
+        deleteTask,
+
+        ///////
+        showContent,
+        showLogin,
+        adminLogin
+        
 
       }}
     >

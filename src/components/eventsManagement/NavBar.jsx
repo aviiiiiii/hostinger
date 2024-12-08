@@ -1,6 +1,9 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
+import React, { useContext } from "react";
+import DataContext from "../../contexts/DataContext";
 
 function NavBar() {
+  const { showContent, showLogin } = useContext(DataContext);
   return (
     <div>
       <div className='eventNavBar'>

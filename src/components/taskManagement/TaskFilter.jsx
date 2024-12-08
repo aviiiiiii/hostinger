@@ -4,14 +4,22 @@ function TaskFilter({filterTasks, getTasks}) {
   return (
 
     <div id = 'taskFilter'>
-        <h2 className='form-header'>All Tasks</h2>
+      <div className="newTaskContainer">
+        <h2>All Tasks</h2>
         <form id="taskFilterForm" onSubmit={filterTasks}>
+        <div className="form-group">
             <label htmlFor='taskId'>Task Id</label>
-            <input id="taskId" type='text' placeholder='Enter Task Id' ></input><br/>
+            <input id="taskId" type='text' placeholder='Enter Task Id' ></input>
+            </div>
+            <div className="form-group">
             <label htmlFor='taskName'>Task Name</label>
-            <input id='taskName'type='text' placeholder='Enter Task Name' ></input><br/>
+            <input id='taskName'type='text' placeholder='Enter Task Name' ></input>
+            </div>
+            <div className="form-group">
             <label htmlFor='taskAssignee'>Assignee</label>
-            <input id='taskAssignee'type='text' placeholder='Enter Assignee'></input><br/>
+            <input id='taskAssignee'type='text' placeholder='Enter Assignee'></input>
+            </div>
+            <div className="form-group">
             <label htmlFor='taskStatus'>Status</label>
             <select id='taskStatus' name='taskStatus'>
                  <option value="" disabled selected>Select Status</option>
@@ -19,13 +27,16 @@ function TaskFilter({filterTasks, getTasks}) {
                 <option value='InProgress'>InProgress</option>
                 <option value='Completed'>Completed</option>
                 <option value='Blocked'>Blocked</option>
-            </select><br />
+            </select></div>
+            <div className='buttonGroup'>
             <button id='filter' name ='filter' type='submit'>Filter Task</button>
             <button id='resetFields' name ='resetFields' type='submit'>Reset</button>
             <button id="getTasks" onClick={getTasks}>getTasks</button>      
+            </div>
             </form>
             <hr></hr>
             </div>    
+            </div>
   )
 }
 

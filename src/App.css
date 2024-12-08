@@ -775,8 +775,7 @@ div.TeamTaskManagementBlogContent ul li {
   font-weight: bold;
 }
 
-.EventFeedbackContainer input[type="text"],
-input[type="email"] {
+.EventFeedbackContainer input{
   flex: 2;
   padding: 8px;
   border: 1px solid #ccc;
@@ -844,3 +843,18 @@ input[type="email"] {
 .newTaskContainer button:hover {
   background-color: #083dc4;
 }
+
+.buttonGroup{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0;
+  margin-bottom: 0;
+  align-content: center;
+  text-align: center;
+}
+
+.buttonGroup button{
+  margin: 5px;
+}
+

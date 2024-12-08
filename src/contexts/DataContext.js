@@ -2,6 +2,7 @@ import { createContext, useEffect, useState } from "react";
 import React from "react";
 import AwsS3TextFile from "../pages/AwsS3TextFile";
 import { FaAngleDoubleRight, FaArrowCircleRight } from "react-icons/fa";
+import { CognitoUserPool, CognitoUser, AuthenticationDetails } from "amazon-cognito-identity-js";
 
 import axios from 'axios';
 
@@ -47,7 +48,7 @@ export const DataProvider = ({ children }) => {
     fetchVehicleList();
     fetchTollList();
     // getTasks();
-
+    fetchEvents();
     ///////////////////////////////////////////
     let formattedMonth;
     let formattedMonth1;
@@ -75,7 +76,7 @@ export const DataProvider = ({ children }) => {
   ////////////////////////////////////////////////////
   const [tasks, setTasks] = useState([]);
 
-
+  const [events, setEvents] = useState([]);
 
   //////////////////////////////////////////////////////////////////////////////
   const date = new Date();
@@ -862,6 +863,39 @@ export const DataProvider = ({ children }) => {
     event.preventDefault();
     let username = event.target[0].value;
     let password = event.target[1].value;
+  //   const authenticationData = {
+  //     Username: username,
+  //     Password: password,
+  //   };
+  //   const poolData = {
+  //     UserPoolId: 'us-east-1_7AyitscyJ', // Replace with your User Pool ID
+  //     ClientId: '6mk1mbgpbp5glfipcg14k2neg0'  // Replace with your App Client ID
+  //   };
+  //   const userPool = new CognitoUserPool(poolData);
+  //   const userData = {
+  //     Username: username,
+  //     Pool: userPool,
+  //   };
+  //   const authenticationDetails = new AuthenticationDetails(authenticationData);
+  //   const cognitoUser = new CognitoUser(userData);
+  
+  //   cognitoUser.authenticateUser(authenticationDetails, {
+  //     onSuccess: (result) => {
+  //       // Store the token for API requests
+  //       const idToken = result.getIdToken().getJwtToken();
+  //       localStorage.setItem('adminToken', idToken);
+  
+  //       // Show the Admin Dashboard
+  //       document.getElementById("AdminLogin").style.display = 'none';
+  //     document.getElementById("AdminContent").style.display = 'block'; 
+  //     },
+  //     onFailure: (err) => {
+  //       alert('Login failed: ' + err.message || JSON.stringify(err));
+  //     },
+  //   });
+  // };
+  
+    
     if (username == 'admin' && password == 'adminpw'){
       document.getElementById("AdminLogin").style.display = 'none';
       document.getElementById("AdminContent").style.display = 'block'; 
@@ -870,7 +904,65 @@ export const DataProvider = ({ children }) => {
       alert("Invalid username/password");
       event.target.reset();
     }
+
+  };
+
+  const EVENT_API_URL = "https://p19j0kcg1f.execute-api.us-east-1.amazonaws.com/live"
+
+  const createNewEvent = async (event) =>{
+    event.preventDefault();
+    let newEvent = {
+      EventId: event.target[0].value,
+      Title: event.target[1].value,
+      Description: event.target[2].value,
+      Organizer: event.target[3].value,
+      Date: event.target[4].value,
+      Time: event.target[5].value
+    };
+    await axios.post(EVENT_API_URL +'/events', newEvent).then(response => {
+      if(response.data.statusCode == 200){
+        alert("Event Added successfully")
+        event.target.reset();
+      }
+      else{
+        alert(response.data.body);
+      }
+    })
+    .catch(error => {
+      alert(error)
+    });
   }
+
+  const fetchEvents = async (event)=>{
+    try{
+      event.preventDefault();
+    }catch{
+      //pass
+    }
+    
+    await axios.get(EVENT_API_URL +'/events').then(response => {
+      if(response.data.statusCode == 200){
+        console.log(response.data.body);
+        let body = JSON.parse(response.data.body);
+        setEvents(body);
+        console.log("event");
+        console.log(events);
+        try{
+          event.target.reset();
+        }catch{
+          //pass
+        }
+        
+      }
+      else{
+        alert(response.data.body);
+      }
+    })
+    .catch(error => {
+      alert(error)
+    });
+  }
+  
 
 
   return (
@@ -957,7 +1049,10 @@ export const DataProvider = ({ children }) => {
         ///////
         showContent,
         showLogin,
-        adminLogin
+        adminLogin,
+        createNewEvent,
+        events, 
+        setEvents
         
 
       }}

@@ -1,22 +1,30 @@
-import React from "react"
+import React, { useContext } from "react";
 import NavBar from "../../components/eventsManagement/NavBar";
+import DataContext from "../../contexts/DataContext";
 
 function EventsFeedbackPage() {
+  const { submitFeedback } = useContext(DataContext);
   return (
     <div>
       <NavBar />
-      <h2>Please provide your valuable Feedback</h2>
-      <form id="feedback-form">
-          <label for="feedback-event-id">Event ID:</label>
-          <input type="text" id="feedback-event-id" name="feedback-event-id" required/><br/>
-          <label for="feedback-rating">Rating (1-5):</label>
-          <input type="number" id="feedback-rating" name="feedback-rating" min="1" max="5" required/><br/>
-          <label for="feedback-comments">Comments:</label>
-          <textarea id="feedback-comments" name="feedback-comments"></textarea><br/>
-          <button type="submit">Submit Feedback</button>
-          </form>
-      <br/><br/>
-      <h3>Feedbacks</h3>
+      <div className="EventFeedbackContainer">
+      <h2>Please provide your Feedback</h2>
+      <form id="feedback-form" className="form" onSubmit={submitFeedback}>
+        <div className="form-group">
+          <label htmlFor="name">Name:</label>
+          <input type="text" id="name" required />
+        </div>
+        <div className="form-group">
+          <label htmlFor="email">Email:</label>
+          <input type="email" id="email" required />
+        </div>
+        <div className="form-group">
+          <label htmlFor="message">Message:</label>
+          <input type="text" id="message" required />
+        </div>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
     </div>
 
 

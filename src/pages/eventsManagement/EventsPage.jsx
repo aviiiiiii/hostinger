@@ -1,7 +1,9 @@
-import React from "react"
+import React, { useContext } from "react";
 import NavBar from "../../components/eventsManagement/NavBar";
+import DataContext from "../../contexts/DataContext";
 
 function EventsEventsPage() {
+  const {  } = useContext(DataContext);
   return (
     <div className="eventsPage">
       <NavBar />

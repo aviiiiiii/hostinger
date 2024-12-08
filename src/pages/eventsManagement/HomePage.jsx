@@ -48,9 +48,7 @@ function EventsHomePage() {
         <footer className="section footer-classNameic context-dark bg-image">
           <div className="container">
             <div className="row row-30">
-              <div className="col-md-4">
-                <p className="rights"><span>©  </span><span className="copyright-year">2024</span><span> </span><span>Company</span><span> - </span><span>All Rights Reserved.</span></p>
-              </div>
+              
               <hr />
               <br></br>
               <div className="col-md-4">
@@ -83,6 +81,7 @@ function EventsHomePage() {
             <div className="col"><a className="social-inner" href="#"><span className="icon mdi mdi-twitter"></span><span>Twitter</span></a></div>
             <div className="col"><a className="social-inner" href="#"><span className="icon mdi mdi-youtube-play"></span><span>Youtube</span></a></div>
           </div>
+                <p className="rights" style={{margin:'0px'}}><span>©  </span><span className="copyright-year">2024</span><span> </span><span>Company</span><span> - </span><span>All Rights Reserved.</span></p>
         </footer>
       </div>
     </div>

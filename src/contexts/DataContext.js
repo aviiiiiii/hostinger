@@ -969,7 +969,31 @@ export const DataProvider = ({ children }) => {
     });
   }
   
-
+  const deleteEvent = async (event)=>{
+    event.preventDefault();
+    console.log(event.target.id);
+    // await axios.delete(EVENT_API_URL +'/events/').then(response => {
+    //   if(response.data.statusCode == 200){
+    //     console.log(response.data.body);
+    //     let body = JSON.parse(response.data.body);
+    //     setEvents(body);
+    //     console.log("event");
+    //     console.log(events);
+    //     try{
+    //       event.target.reset();
+    //     }catch{
+    //       //pass
+    //     }
+        
+    //   }
+    //   else{
+    //     alert(response.data.body);
+    //   }
+    // })
+    // .catch(error => {
+    //   alert(error)
+    // });
+  }
 
   return (
     <DataContext.Provider
@@ -1059,7 +1083,8 @@ export const DataProvider = ({ children }) => {
         adminLogin,
         createNewEvent,
         events, 
-        setEvents
+        setEvents,
+        deleteEvent
         
 
       }}

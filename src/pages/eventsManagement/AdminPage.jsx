@@ -3,7 +3,7 @@ import NavBar from "../../components/eventsManagement/NavBar";
 import DataContext from "../../contexts/DataContext";
 
 function EventsAdminPage() {
-  const { createNewEvent, notifyAttendees, adminLogin, deleteEvent } = useContext(DataContext);
+  const { createNewEvent, notifyOrFetchAttendees, adminLogin, deleteEvent } = useContext(DataContext);
   return (
     <div>
       <NavBar />
@@ -66,14 +66,14 @@ function EventsAdminPage() {
           <div class="right-column">
             <div className="EventFeedbackContainer">
               <h2>Notify Attendees</h2>
-              <form id="notifyAttendee-form" className="form" onSubmit={notifyAttendees}>
+              <form id="notifyAttendee-form" className="form" onSubmit={notifyOrFetchAttendees}>
                 <div className="form-group">
                   <label htmlFor="eventId">Event Id:</label>
                   <input type="text" id="eventId" required />
                 </div>
 
                 <div className='buttonGroup'>
-                  <button id='notifyAttendees' name='filter' type='submit'>Notify Attendees</button>
+                  <button id='notifyAttendees' name='notifyAttendees' type='submit'>Notify Attendees</button>
                   <button id='fetchAttendees' name='fetchAttendees' type='submit'>Fetch Attendees</button>
                 </div>
               </form>

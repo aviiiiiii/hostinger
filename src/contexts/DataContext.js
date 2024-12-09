@@ -11,6 +11,7 @@ const DataContext = createContext();
 export const DataProvider = ({ children }) => {
   const [tollList, settollList] = useState([]);
   const [vehicleList, setVehicleList] = useState([]);
+  
 
   // const serverURL = "https://real-gold-katydid-tam.cyclic.app";
   const serverURL = "https://cyclic-ycjj.onrender.com";
@@ -77,6 +78,9 @@ export const DataProvider = ({ children }) => {
   const [tasks, setTasks] = useState([]);
 
   const [events, setEvents] = useState([]);
+
+  
+  const [registerEventId, setRegisterEventId] = useState("");
 
   //////////////////////////////////////////////////////////////////////////////
   const date = new Date();
@@ -850,9 +854,15 @@ export const DataProvider = ({ children }) => {
 
   //////////////////////////////////////////////////////////////////////////////////////
 
-  const togglePopup = () =>{
+  const togglePopup = (event) =>{
     console.log("Hi");
     document.getElementById("popupOverlay").classList.toggle('show'); 
+    
+    let eventId = event.nativeEvent.target.name;
+    // console.log(event);
+    // console.log(eventId);
+    setRegisterEventId(eventId);
+    
   }
 
   const showLogin = () =>{
@@ -971,29 +981,62 @@ export const DataProvider = ({ children }) => {
   
   const deleteEvent = async (event)=>{
     event.preventDefault();
-    console.log(event.target.id);
-    // await axios.delete(EVENT_API_URL +'/events/').then(response => {
-    //   if(response.data.statusCode == 200){
-    //     console.log(response.data.body);
-    //     let body = JSON.parse(response.data.body);
-    //     setEvents(body);
-    //     console.log("event");
-    //     console.log(events);
-    //     try{
-    //       event.target.reset();
-    //     }catch{
-    //       //pass
-    //     }
-        
-    //   }
-    //   else{
-    //     alert(response.data.body);
-    //   }
-    // })
-    // .catch(error => {
-    //   alert(error)
-    // });
+    let eventId = event.target[0].value;
+    await axios.delete(EVENT_API_URL +'/events/'+eventId).then(response => {
+      if(response.data.statusCode == 200){
+        console.log(response.data.body);
+        let body = JSON.parse(response.data.body);
+        setEvents(body);
+        event.target.reset();
+        alert("Event Deleted Successfully");
+      }
+      else{
+        alert(response.data.body);
+      }
+    })
+    .catch(error => {
+      alert(error)
+    });
   }
+
+  const notifyOrFetchAttendees = async(event) =>{
+    event.preventDefault();
+    let eventId = event.target[0].value;
+    if (event.nativeEvent.submitter.name === "fetchAttendees") {
+      await axios.get(EVENT_API_URL +'/events/'+eventId+'/attendees').then(response => {
+        if(response.data.statusCode == 200){
+          console.log(response.data.body);
+          let body = JSON.parse(response.data.body);
+          console.log(body);
+          event.target.reset();
+        }
+        else{
+          alert(response.data.body);
+        }
+      })
+      .catch(error => {
+        alert(error)
+      }); 
+    }else{
+        //Code to send notification to Attendees
+    }
+
+  }
+
+  const registerPopUp = async (event) =>{
+    event.preventDefault();
+  
+    let newAttendee = {
+      Name: event.target[0].value,
+      AttendeeId: event.target[1].value,
+      Email: event.target[2].value,
+      Phone: event.target[3].value,
+      EventId : registerEventId
+    };
+    console.log(newAttendee);
+    
+  }
+
 
   return (
     <DataContext.Provider
@@ -1084,7 +1127,9 @@ export const DataProvider = ({ children }) => {
         createNewEvent,
         events, 
         setEvents,
-        deleteEvent
+        deleteEvent,
+        notifyOrFetchAttendees,
+        registerPopUp
         
 
       }}

@@ -910,7 +910,7 @@ export const DataProvider = ({ children }) => {
   //  event.target.reset();
   //  }
 
-  };
+  // };
 
   const EVENT_API_URL = "https://p19j0kcg1f.execute-api.us-east-1.amazonaws.com/live"
 

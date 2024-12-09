@@ -868,49 +868,49 @@ export const DataProvider = ({ children }) => {
     event.preventDefault();
     let username = event.target[0].value;
     let password = event.target[1].value;
-  //   const authenticationData = {
-  //     Username: username,
-  //     Password: password,
-  //   };
-  //   const poolData = {
-  //     UserPoolId: 'us-east-1_7AyitscyJ', // Replace with your User Pool ID
-  //     ClientId: '6mk1mbgpbp5glfipcg14k2neg0'  // Replace with your App Client ID
-  //   };
-  //   const userPool = new CognitoUserPool(poolData);
-  //   const userData = {
-  //     Username: username,
-  //     Pool: userPool,
-  //   };
-  //   const authenticationDetails = new AuthenticationDetails(authenticationData);
-  //   const cognitoUser = new CognitoUser(userData);
+    const authenticationData = {
+       Username: username,
+       Password: password,
+     };
+     const poolData = {
+       UserPoolId: 'us-east-1_yy5KLO6i4', // Replace with your User Pool ID
+       ClientId: '4rar1ekgmm5dvu2smjn53t7ta3'  // Replace with your App Client ID
+     };
+     const userPool = new CognitoUserPool(poolData);
+     const userData = {
+       Username: username,
+       Pool: userPool,
+     };
+     const authenticationDetails = new AuthenticationDetails(authenticationData);
+     const cognitoUser = new CognitoUser(userData);
   
-  //   cognitoUser.authenticateUser(authenticationDetails, {
-  //     onSuccess: (result) => {
-  //       // Store the token for API requests
-  //       const idToken = result.getIdToken().getJwtToken();
-  //       localStorage.setItem('adminToken', idToken);
+     cognitoUser.authenticateUser(authenticationDetails, {
+       onSuccess: (result) => {
+         // Store the token for API requests
+         const idToken = result.getIdToken().getJwtToken();
+         localStorage.setItem('adminToken', idToken);
   
-  //       // Show the Admin Dashboard
-  //       document.getElementById("AdminLogin").style.display = 'none';
-  //     document.getElementById("AdminContent").style.display = 'block'; 
-  //     },
-  //     onFailure: (err) => {
-  //       alert('Login failed: ' + err.message || JSON.stringify(err));
-  //     },
-  //   });
-  // };
+         // Show the Admin Dashboard
+         document.getElementById("AdminLogin").style.display = 'none';
+       document.getElementById("AdminContent").style.display = 'block'; 
+       },
+       onFailure: (err) => {
+         alert('Login failed: ' + err.message || JSON.stringify(err));
+       },
+     });
+   };
   
     
-    if (username == 'admin' && password == 'adminpw'){
-      document.getElementById("AdminLogin").style.display = 'none';
-      document.getElementById("AdminContent").style.display = 'block'; 
-    }else
-    {
-      alert("Invalid username/password");
-      event.target.reset();
-    }
+   // if (username == 'admin' && password == 'adminpw'){
+      //document.getElementById("AdminLogin").style.display = 'none';
+      //document.getElementById("AdminContent").style.display = 'block'; 
+ //   }else
+  //  {
+  //    alert("Invalid username/password");
+  //  event.target.reset();
+  //  }
 
-  };
+  // };
 
   const EVENT_API_URL = "https://p19j0kcg1f.execute-api.us-east-1.amazonaws.com/live"
 

@@ -1034,7 +1034,22 @@ export const DataProvider = ({ children }) => {
       EventId : registerEventId
     };
     console.log(newAttendee);
-    
+    let eventId = registerEventId;
+    await axios.post(EVENT_API_URL +'/events/'+eventId+'/attendees', newAttendee).then(response => {
+      if(response.data.statusCode == 200){
+        console.log(response.data.body);
+        let body = JSON.parse(response.data.body);
+        console.log(body);
+        event.target.reset();
+        togglePopup();
+      }
+      else{
+        alert(response.data.body);
+      }
+    })
+    .catch(error => {
+      alert(error)
+    });
   }
 
 

@@ -1085,3 +1085,30 @@ div.TeamTaskManagementBlogContent ul li {
   text-align: center;
   padding: 10px;
 }
+
+/* EventManagementBlog */
+.EventManagementBlogContent h1, .EventManagementBlogContent h2, .EventManagementBlogContent h3, .EventManagementBlogContent h4 {
+  color: #0056b3;
+}
+.EventManagementBlogContent h4 {
+  margin-top: 30px;
+}
+.EventManagementBlogContent p {
+  margin-bottom: 10px;
+}
+.EventManagementBlogContent ul {
+  margin: 10px 0;
+  padding-left: 20px;
+}
+.EventManagementBlogContent li {
+  margin-bottom: 8px;
+}
+.EventManagementBlogContent strong {
+  color: #0056b3;
+}
+.EventManagementBlogContent .highlight {
+  background-color: #f9f9f9;
+  padding: 10px;
+  border-left: 4px solid #0056b3;
+  margin: 20px 0;
+}

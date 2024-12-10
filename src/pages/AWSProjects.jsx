@@ -17,7 +17,7 @@ function AWSProjects() {
             </li>
             <li>
               {" "}
-              <a href="/tollList">TollList</a>
+              <a href="/eventsManagementBlog">Events Management</a>
             </li>
             <li>
               {" "}

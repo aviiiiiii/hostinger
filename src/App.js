@@ -24,6 +24,7 @@ import EventsEventsPage from "./pages/eventsManagement/EventsPage" ;
 import EventsHomePage from "./pages/eventsManagement/HomePage";
 import EventsFeedbackPage from "./pages/eventsManagement/FeedbackPage";
 import EventsAdminPage from "./pages/eventsManagement/AdminPage";
+import EventManagementBlog from "./pages/eventsManagement/EventManagementBlog";
 
 import { DataProvider } from "./contexts/DataContext";
 import Header from "./components/expenseTracker/Header";
@@ -77,6 +78,7 @@ function App() {
           <Route exact path="/eventsManagement/events" element={<EventsEventsPage />} />
           <Route exact path="/eventsManagement/feedback" element={<EventsFeedbackPage />} />
           <Route exact path="/eventsManagement/admin" element={<EventsAdminPage />} />
+          <Route exact path="/eventsManagementBlog" element={<EventManagementBlog />} />
           
           
           <Route exact path="/*" element={<PageNotFound />} />

@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import NavBar from "../../components/eventsManagement/NavBar";
 import DataContext from "../../contexts/DataContext";
 import LoadingPage from "../../components/LoadingPage";
+import AttendeesCard from "../../components/eventsManagement/AttendeesCard";
 
 function EventsAdminPage() {
   const { createNewEvent, notifyOrFetchAttendees, adminLogin, deleteEvent } = useContext(DataContext);
@@ -9,6 +10,7 @@ function EventsAdminPage() {
     <div>
       <NavBar />
       <LoadingPage id="adminPageLoading" />
+      <AttendeesCard />
       <div id="AdminLogin">
         <div className='EventFeedbackContainer'>
           <h2>Admin Login</h2>

@@ -1,13 +1,14 @@
 import React, { useContext } from "react";
 import NavBar from "../../components/eventsManagement/NavBar";
 import DataContext from "../../contexts/DataContext";
+import LoadingPage from "../../components/LoadingPage";
 
 function EventsAdminPage() {
   const { createNewEvent, notifyOrFetchAttendees, adminLogin, deleteEvent } = useContext(DataContext);
   return (
     <div>
       <NavBar />
-
+      <LoadingPage id="adminPageLoading" />
       <div id="AdminLogin">
         <div className='EventFeedbackContainer'>
           <h2>Admin Login</h2>

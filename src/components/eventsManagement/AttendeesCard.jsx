@@ -15,7 +15,7 @@ function AttendeesCard() {
       <th>Name</th>
       <th>Email</th>
       <th>Phone</th>
-    </th>
+    </tr>
               <tr>
       <td>1</td>
       <td>1</td>

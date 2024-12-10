@@ -876,6 +876,7 @@ export const DataProvider = ({ children }) => {
 
   const adminLogin = (event) =>{
     event.preventDefault();
+    start_loadingPage("adminPageLoading");
     let username = event.target[0].value;
     let password = event.target[1].value;
     const authenticationData = {
@@ -899,12 +900,13 @@ export const DataProvider = ({ children }) => {
          // Store the token for API requests
          const idToken = result.getIdToken().getJwtToken();
          localStorage.setItem('adminToken', idToken);
-  
+        stop_loadingPage("adminPageLoading");
          // Show the Admin Dashboard
          document.getElementById("AdminLogin").style.display = 'none';
        document.getElementById("AdminContent").style.display = 'block'; 
        },
        onFailure: (err) => {
+         stop_loadingPage("adminPageLoading");
          alert('Login failed: ' + err.message || JSON.stringify(err));
        },
      });
@@ -926,6 +928,7 @@ export const DataProvider = ({ children }) => {
 
   const createNewEvent = async (event) =>{
     event.preventDefault();
+    start_loadingPage("adminPageLoading");
     let newEvent = {
       EventId: event.target[0].value,
       Title: event.target[1].value,
@@ -937,14 +940,18 @@ export const DataProvider = ({ children }) => {
     };
     await axios.post(EVENT_API_URL +'/events', newEvent).then(response => {
       if(response.data.statusCode == 200){
+        stop_loadingPage("adminPageLoading");
         alert("Event Added successfully")
         event.target.reset();
+        
       }
       else{
+        stop_loadingPage("adminPageLoading");
         alert(response.data.body);
       }
     })
     .catch(error => {
+      stop_loadingPage("adminPageLoading");
       alert(error)
     });
   }
@@ -958,12 +965,12 @@ export const DataProvider = ({ children }) => {
     start_loadingPage("eventsPageLoading");
     await axios.get(EVENT_API_URL +'/events').then(response => {
       if(response.data.statusCode == 200){
+        stop_loadingPage("eventsPageLoading");
         console.log(response.data.body);
         let body = JSON.parse(response.data.body);
         setEvents(body);
         console.log("event");
         console.log(events);
-        stop_loadingPage("eventsPageLoading");
         try{
           event.target.reset();
         }catch{
@@ -972,19 +979,23 @@ export const DataProvider = ({ children }) => {
         
       }
       else{
+        stop_loadingPage("eventsPageLoading");
         alert(response.data.body);
       }
     })
     .catch(error => {
+      stop_loadingPage("eventsPageLoading");
       alert(error)
     });
   }
   
   const deleteEvent = async (event)=>{
     event.preventDefault();
+    start_loadingPage("adminPageLoading");
     let eventId = event.target[0].value;
     await axios.delete(EVENT_API_URL +'/events/'+eventId).then(response => {
       if(response.data.statusCode == 200){
+        stop_loadingPage("adminPageLoading");
         console.log(response.data.body);
         let body = JSON.parse(response.data.body);
         setEvents(body);
@@ -992,30 +1003,36 @@ export const DataProvider = ({ children }) => {
         alert("Event Deleted Successfully");
       }
       else{
+        stop_loadingPage("adminPageLoading");
         alert(response.data.body);
       }
     })
     .catch(error => {
+      stop_loadingPage("adminPageLoading");
       alert(error)
     });
   }
 
   const notifyOrFetchAttendees = async(event) =>{
     event.preventDefault();
+    start_loadingPage("adminPageLoading");
     let eventId = event.target[0].value;
     if (event.nativeEvent.submitter.name === "fetchAttendees") {
       await axios.get(EVENT_API_URL +'/events/'+eventId+'/attendees').then(response => {
         if(response.data.statusCode == 200){
+          stop_loadingPage("adminPageLoading");
           console.log(response.data.body);
           let body = JSON.parse(response.data.body);
           console.log(body);
           event.target.reset();
         }
         else{
+          stop_loadingPage("adminPageLoading");
           alert(response.data.body);
         }
       })
       .catch(error => {
+        stop_loadingPage("adminPageLoading");
         alert(error)
       }); 
     }else{
@@ -1025,6 +1042,7 @@ export const DataProvider = ({ children }) => {
   }
 
   const registerPopUp = async (event) =>{
+    start_loadingPage("eventsPageLoading");
     event.preventDefault();
   
     let newAttendee = {
@@ -1038,6 +1056,7 @@ export const DataProvider = ({ children }) => {
     let eventId = registerEventId;
     await axios.post(EVENT_API_URL +'/events/'+eventId+'/attendees', newAttendee).then(response => {
       if(response.data.statusCode == 200){
+        stop_loadingPage("eventsPageLoading");
         console.log(response.data.body);
         let body = JSON.parse(response.data.body);
         console.log(body);
@@ -1045,10 +1064,12 @@ export const DataProvider = ({ children }) => {
         togglePopup();
       }
       else{
+        stop_loadingPage("eventsPageLoading");
         alert(response.data.body);
       }
     })
     .catch(error => {
+      stop_loadingPage("eventsPageLoading");
       alert(error)
     });
   }

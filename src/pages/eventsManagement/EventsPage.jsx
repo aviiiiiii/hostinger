@@ -9,7 +9,7 @@ function EventsEventsPage() {
   return (
     <div className="eventsPage">
       <NavBar />
-      <LoadingPage id="eventsPage" />
+      <LoadingPage id="eventsPageLoading" />
       <div id="popupOverlay" className="overlay-container ">
         <div className="popup-box">
           <div className="EventFeedbackContainer">

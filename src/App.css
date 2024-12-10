@@ -1025,7 +1025,8 @@ div.TeamTaskManagementBlogContent ul li {
   transform: scale(0.8);
   animation: fadeInUp 0.5s ease-out forwards;
   overflow: scroll;
-  
+  margin: auto;
+  margin-top: 70px;
 }
 
 .attendees-table{

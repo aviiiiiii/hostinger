@@ -955,7 +955,7 @@ export const DataProvider = ({ children }) => {
     }catch{
       //pass
     }
-    
+    start_loadingPage("eventsPageLoading");
     await axios.get(EVENT_API_URL +'/events').then(response => {
       if(response.data.statusCode == 200){
         console.log(response.data.body);
@@ -963,6 +963,7 @@ export const DataProvider = ({ children }) => {
         setEvents(body);
         console.log("event");
         console.log(events);
+        stop_loadingPage("eventsPageLoading");
         try{
           event.target.reset();
         }catch{
@@ -1052,6 +1053,14 @@ export const DataProvider = ({ children }) => {
     });
   }
 
+  const start_loadingPage = (id) => {
+    document.getElementById(id).style.display = "block";
+    document.getElementById(id).style.opacity = "1";
+  }
+  const stop_loadingPage = (id) => {
+    document.getElementById(id).style.display = "none";
+    document.getElementById(id).style.opacity = "0";
+  }
 
   return (
     <DataContext.Provider

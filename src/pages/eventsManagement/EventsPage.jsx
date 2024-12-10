@@ -2,12 +2,14 @@ import React, { useContext } from "react";
 import NavBar from "../../components/eventsManagement/NavBar";
 import DataContext from "../../contexts/DataContext";
 import EventCard from "../../components/eventsManagement/EventCard";
+import LoadingPage from "../../components/LoadingPage";
 
 function EventsEventsPage() {
   const { events, registerPopUp, togglePopup } = useContext(DataContext);
   return (
     <div className="eventsPage">
       <NavBar />
+      <LoadingPage id="eventsPage" />
       <div id="popupOverlay" className="overlay-container ">
         <div className="popup-box">
           <div className="EventFeedbackContainer">

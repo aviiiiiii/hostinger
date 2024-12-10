@@ -9,12 +9,12 @@ function AttendeesCard() {
           <div className="AttendeesContainer">
             <h2>AttendeeList</h2>
             <table>
-              <th>
-      <td>AttendeeId</td>
-      <td>EventId</td>
-      <td>Name</td>
-      <td>Email</td>
-      <td>Phone</td>
+              <tr>
+      <th>AttendeeId</th>
+      <th>EventId</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Phone</th>
     </th>
               <tr>
       <td>1</td>

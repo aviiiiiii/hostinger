@@ -78,7 +78,11 @@ export const DataProvider = ({ children }) => {
   const [tasks, setTasks] = useState([]);
 
   const [events, setEvents] = useState([]);
+  
 
+  const [attendees, setAttendees] = useState([]);
+  
+  const [feedbacks, setFeedbacks] = useState([]);
   
   const [registerEventId, setRegisterEventId] = useState("");
 
@@ -1020,11 +1024,11 @@ export const DataProvider = ({ children }) => {
     if (event.nativeEvent.submitter.name === "fetchAttendees") {
       await axios.get(EVENT_API_URL +'/events/'+eventId+'/attendees').then(response => {
         if(response.data.statusCode == 200){
-          stop_loadingPage("adminPageLoading");
-          console.log(response.data.body);
           let body = JSON.parse(response.data.body);
-          console.log(body);
+          setAttendees(body);
+          stop_loadingPage("adminPageLoading");
           event.target.reset();
+          show_attendeesTable();
         }
         else{
           stop_loadingPage("adminPageLoading");
@@ -1035,8 +1039,41 @@ export const DataProvider = ({ children }) => {
         stop_loadingPage("adminPageLoading");
         alert(error)
       }); 
-    }else{
-        //Code to send notification to Attendees
+    }else if (event.nativeEvent.submitter.name === "fetchFeedbacks"){
+      
+    await axios.get(EVENT_API_URL +'/events/'+eventId+'/feedback').then(response => {
+      if(response.data.statusCode == 200){
+        let body = JSON.parse(response.data.body);
+        setFeedbacks(body);
+        stop_loadingPage("adminPageLoading");
+        event.target.reset();
+        show_feedbacksTable();
+      }
+      else{
+        stop_loadingPage("adminPageLoading");
+        alert(response.data.body);
+      }
+    })
+    .catch(error => {
+      stop_loadingPage("adminPageLoading");
+      alert(error)
+    });
+    }else {
+      await axios.post(EVENT_API_URL +'/events/'+eventId+'/notify').then(response => {
+        if(response.data.statusCode == 200){
+          stop_loadingPage("adminPageLoading");
+          event.target.reset();
+          alert("Notifications sent");
+        }
+        else{
+          stop_loadingPage("adminPageLoading");
+          alert(response.data.body);
+        }
+      })
+      .catch(error => {
+        stop_loadingPage("adminPageLoading");
+        alert(error)
+      });
     }
 
   }
@@ -1081,6 +1118,84 @@ export const DataProvider = ({ children }) => {
   const stop_loadingPage = (id) => {
     document.getElementById(id).style.display = "none";
     document.getElementById(id).style.opacity = "0";
+  }
+
+  const show_attendeesTable = () => {
+    document.getElementsByClassName("attendees-overlay-container")[0].style.display = "block";
+    document.getElementsByClassName("attendees-overlay-container")[0].style.opacity = "1";
+  }
+
+
+  const hide_attendeesTable = () => {
+    document.getElementsByClassName("attendees-overlay-container")[0].style.display = "none";
+    document.getElementsByClassName("attendees-overlay-container")[0].style.opacity = "0";
+  }
+
+  const show_feedbacksTable = () => {
+    document.getElementsByClassName("feedbacks-overlay-container")[0].style.display = "block";
+    document.getElementsByClassName("feedbacks-overlay-container")[0].style.opacity = "1";
+  }
+
+
+  const hide_feedbacksTable = () => {
+    document.getElementsByClassName("feedbacks-overlay-container")[0].style.display = "none";
+    document.getElementsByClassName("feedbacks-overlay-container")[0].style.opacity = "0";
+  }
+
+  const submitFeedback = async (event) => {
+    event.preventDefault();
+    start_loadingPage("feedbackPageLoading");
+    let newFeedback = {
+      Attendee: event.target[0].value,
+      EventId: event.target[1].value,
+      Rating: event.target[2].value,
+      Comments: event.target[3].value
+    };
+    console.log(parseInt(event.target[2].value));
+    await axios.post(EVENT_API_URL +'/events/0/feedback', newFeedback).then(response => {
+      if(response.data.statusCode == 200){
+        stop_loadingPage("feedbackPageLoading");
+        event.target.reset();
+        alert("Feedback submitted");
+      }
+      else{
+        stop_loadingPage("feedbackPageLoading");
+        alert(response.data.body);
+      }
+    })
+    .catch(error => {
+      stop_loadingPage("feedbackPageLoading");
+      alert(error)
+    });
+  }
+
+  const fetchFeedbacks = async (event) => {
+    try{
+      event.preventDefault();
+    
+    }catch{
+      //pass  
+    }
+    start_loadingPage("adminPageLoading");
+    let eventId = event.target[0].value;
+    await axios.get(EVENT_API_URL +'/events/'+eventId+'/feedback').then(response => {
+      if(response.data.statusCode == 200){
+        let body = JSON.parse(response.data.body);
+        setFeedbacks(body);
+        stop_loadingPage("adminPageLoading");
+        event.target.reset();
+        show_feedbacksTable();
+      }
+      else{
+        stop_loadingPage("adminPageLoading");
+        alert("else : " + response.data.body);
+        console.log(response);
+      }
+    })
+    .catch(error => {
+      stop_loadingPage("adminPageLoading");
+      alert("catch : " + error)
+    });
   }
 
   return (
@@ -1174,8 +1289,12 @@ export const DataProvider = ({ children }) => {
         setEvents,
         deleteEvent,
         notifyOrFetchAttendees,
-        registerPopUp
-        
+        registerPopUp,
+        attendees,
+        hide_attendeesTable,
+        submitFeedback,
+        hide_feedbacksTable,
+        feedbacks        
 
       }}
     >

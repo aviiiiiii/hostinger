@@ -1,12 +1,14 @@
 import React, { useContext } from "react";
 import NavBar from "../../components/eventsManagement/NavBar";
 import DataContext from "../../contexts/DataContext";
+import LoadingPage from "../../components/LoadingPage";
 
 function EventsFeedbackPage() {
   const { submitFeedback } = useContext(DataContext);
   return (
     <div>
       <NavBar />
+      <LoadingPage id="feedbackPageLoading" />
       <div className="EventFeedbackContainer">
       <h2>Please provide your Feedback</h2>
       <form id="feedback-form" className="form" onSubmit={submitFeedback}>

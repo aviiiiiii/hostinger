@@ -3,6 +3,7 @@ import NavBar from "../../components/eventsManagement/NavBar";
 import DataContext from "../../contexts/DataContext";
 import LoadingPage from "../../components/LoadingPage";
 import AttendeesCard from "../../components/eventsManagement/AttendeesCard";
+import FeedbacksCard from "../../components/eventsManagement/FeedbacksCard";
 
 function EventsAdminPage() {
   const { createNewEvent, notifyOrFetchAttendees, adminLogin, deleteEvent } = useContext(DataContext);
@@ -11,6 +12,7 @@ function EventsAdminPage() {
       <NavBar />
       <LoadingPage id="adminPageLoading" />
       <AttendeesCard />
+      <FeedbacksCard />
       <div id="AdminLogin">
         <div className='EventFeedbackContainer'>
           <h2>Admin Login</h2>
@@ -68,7 +70,7 @@ function EventsAdminPage() {
           </div>
           <div class="right-column">
             <div className="EventFeedbackContainer">
-              <h2>Notify Attendees</h2>
+              <h2>Event Database</h2>
               <form id="notifyAttendee-form" className="form" onSubmit={notifyOrFetchAttendees}>
                 <div className="form-group">
                   <label htmlFor="eventId">Event Id:</label>
@@ -78,6 +80,7 @@ function EventsAdminPage() {
                 <div className='buttonGroup'>
                   <button id='notifyAttendees' name='notifyAttendees' type='submit'>Notify Attendees</button>
                   <button id='fetchAttendees' name='fetchAttendees' type='submit'>Fetch Attendees</button>
+                  <button id='fetchFeedbacks' name='fetchFeedbacks' type='submit'>Fetch Feedbacks</button>
                 </div>
               </form>
             </div>

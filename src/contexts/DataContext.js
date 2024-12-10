@@ -905,8 +905,8 @@ export const DataProvider = ({ children }) => {
          document.getElementById("AdminLogin").style.display = 'none';
        document.getElementById("AdminContent").style.display = 'block'; 
        },
-       onFailure: (err) => {
-         stop_loadingPage("adminPageLoading");
+       onFailure: async (err) => {
+         await stop_loadingPage("adminPageLoading");
          alert('Login failed: ' + err.message || JSON.stringify(err));
        },
      });

@@ -46,7 +46,7 @@ function EventManagementBlog() {
 
                 <h2>Wrapping it Up:</h2>
                 <p>By combining a ReactJS frontend with AWS services like API Gateway, Lambda, DynamoDB, and Cognito, I created a serverless, scalable, and secure solution for managing events. AWS’s seamless integration makes it an excellent choice for building modern applications.</p>
-                <img src={require("../../images/AWS Flow Diagram/TaskManagement_flowDiagram.png")} />
+                <img src={require("../../images/AWS Flow Diagram/EventManagement_FlowDiagram.png")} />
                 <br /><br />
                 <a href="eventsManagement">Event Management Web Application</a>
             </div>

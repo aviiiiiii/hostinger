@@ -561,14 +561,14 @@ div.TeamTaskManagementBlogContent ul li {
 /* eventsHomePage */
 
 
-.sliderImageDiv{
-    position: relative;
-    width: 100%;
-    height: 70vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: rgb(29, 29, 29);
+.sliderImageDiv {
+  position: relative;
+  width: 100%;
+  height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgb(29, 29, 29);
 }
 
 
@@ -581,6 +581,7 @@ div.TeamTaskManagementBlogContent ul li {
   align-items: center;
   overflow: hidden;
 }
+
 .eventsHomePage .slider {
   position: relative;
   width: 400%;
@@ -591,15 +592,19 @@ div.TeamTaskManagementBlogContent ul li {
   justify-content: space-between;
   animation: 10s cubic-bezier(1, 0.95, 0.565, 1) sliding infinite;
 }
+
 .eventsHomePage .slide {
   position: relative;
   min-width: 100%;
   height: 100%;
 }
-.eventsHomePage .slide img, .eventsHomePage .slide p {
+
+.eventsHomePage .slide img,
+.eventsHomePage .slide p {
   width: 100%;
   height: 100%;
 }
+
 .eventsHomePage .slide .caption {
   position: absolute;
   left: 0;
@@ -613,67 +618,82 @@ div.TeamTaskManagementBlogContent ul li {
   padding: 1rem 5rem;
   border-radius: 0 2rem 2rem 0;
 }
+
 .eventsHomePage .slide.one {
   background: rgb(182, 19, 109);
 }
+
 .eventsHomePage .slide.two {
   background: rgb(255, 64, 64);
 }
+
 .eventsHomePage .slide.three {
   background: rgb(11, 173, 188);
 }
+
 .eventsHomePage .slide.four {
   background: rgb(11, 188, 14);
 }
+
 .eventsHomePage .slide.five {
   background: rgb(173, 11, 188);
 }
+
 @keyframes sliding {
   0% {
     transform: translateX(0%);
   }
+
   20% {
     transform: translateX(0%);
   }
+
   25% {
     transform: translateX(-100%);
   }
+
   45% {
     transform: translateX(-100%);
   }
+
   50% {
     transform: translateX(-200%);
   }
+
   70% {
     transform: translateX(-200%);
   }
+
   75% {
     transform: translateX(-300%);
   }
+
   95% {
     transform: translateX(-300%);
   }
+
   100% {
     transform: translateX(-400%);
   }
 }
 
 .description p {
-  margin: 50px ;
-  text-align: center; 
+  margin: 50px;
+  text-align: center;
   font-size: 2rem;
   font-family: "DynaPuff";
 
- 
- }
+
+}
 
 
 /* Footer */
 
-.myFooter{
+.myFooter {
   background-color: lightblue;
 }
-.myFooter p{
+
+.myFooter p {
   margin: auto;
   align-self: center;
   justify-self: center;
@@ -690,7 +710,8 @@ div.TeamTaskManagementBlogContent ul li {
   visibility: visible;
 }
 
-.myFooter ul, .myFooter ol {
+.myFooter ul,
+.myFooter ol {
   list-style: none;
   padding: 0;
   margin: 0;
@@ -706,13 +727,14 @@ div.TeamTaskManagementBlogContent ul li {
   text-transform: uppercase;
   color: rgba(96, 0, 0, 0.5);
 }
+
 .myFooter .social-container .col {
   border: 1px solid rgb(107, 113, 134);
 }
 
 
 /* EventsPage */
-.cards{
+.cards {
   margin-left: 75px;
   display: flex;
   flex-direction: row;
@@ -743,7 +765,7 @@ div.TeamTaskManagementBlogContent ul li {
   background: #45a049;
 }
 
-.card img{
+.card img {
   width: 300px;
   height: 165px;
 }
@@ -775,7 +797,7 @@ div.TeamTaskManagementBlogContent ul li {
   font-weight: bold;
 }
 
-.EventFeedbackContainer input{
+.EventFeedbackContainer input {
   flex: 2;
   padding: 8px;
   border: 1px solid #ccc;
@@ -823,7 +845,8 @@ div.TeamTaskManagementBlogContent ul li {
   font-weight: bold;
 }
 
-.newTaskContainer input, .newTaskContainer select{
+.newTaskContainer input,
+.newTaskContainer select {
   flex: 2;
   padding: 4px;
   border: 1px solid #ccc;
@@ -844,7 +867,7 @@ div.TeamTaskManagementBlogContent ul li {
   background-color: #083dc4;
 }
 
-.buttonGroup{
+.buttonGroup {
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -854,7 +877,7 @@ div.TeamTaskManagementBlogContent ul li {
   text-align: center;
 }
 
-.buttonGroup button{
+.buttonGroup button {
   margin: 5px;
 }
 
@@ -962,13 +985,13 @@ div.TeamTaskManagementBlogContent ul li {
 /* Keyframes for fadeInUp animation */
 @keyframes fadeInUp {
   from {
-      opacity: 0;
-      transform: translateY(20px);
+    opacity: 0;
+    transform: translateY(20px);
   }
 
   to {
-      opacity: 1;
-      transform: translateY(0);
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
@@ -994,8 +1017,8 @@ div.TeamTaskManagementBlogContent ul li {
   text-align: center;
 }
 
-.spinner-loader{
-  margin:50vh;
+.spinner-loader {
+  margin: 50vh;
 }
 
 /* AttendeePopup */
@@ -1030,13 +1053,14 @@ div.TeamTaskManagementBlogContent ul li {
   max-height: 80vh;
 }
 
-.attendees-table{
+.attendees-table {
   margin: auto;
-  
+
 }
 
 
-.attendees-table th, .attendees-table td {
+.attendees-table th,
+.attendees-table td {
   border: 1px solid #ccc;
   text-align: center;
   padding: 10px;
@@ -1074,41 +1098,121 @@ div.TeamTaskManagementBlogContent ul li {
   max-height: 80vh;
 }
 
-.feedbacks-table{
+.feedbacks-table {
   margin: auto;
-  
+
 }
 
 
-.feedbacks-table th, .feedbacks-table td {
+.feedbacks-table th,
+.feedbacks-table td {
   border: 1px solid #ccc;
   text-align: center;
   padding: 10px;
 }
 
 /* EventManagementBlog */
-.EventManagementBlogContent h1, .EventManagementBlogContent h2, .EventManagementBlogContent h3, .EventManagementBlogContent h4 {
+.EventManagementBlogContent h1,
+.EventManagementBlogContent h2,
+.EventManagementBlogContent h3,
+.EventManagementBlogContent h4 {
   color: #0056b3;
 }
+
 .EventManagementBlogContent h4 {
   margin-top: 30px;
 }
+
 .EventManagementBlogContent p {
   margin-bottom: 10px;
 }
+
 .EventManagementBlogContent ul {
   margin: 10px 0;
   padding-left: 20px;
 }
+
 .EventManagementBlogContent li {
   margin-bottom: 8px;
 }
+
 .EventManagementBlogContent strong {
   color: #0056b3;
 }
+
 .EventManagementBlogContent .highlight {
   background-color: #f9f9f9;
   padding: 10px;
   border-left: 4px solid #0056b3;
   margin: 20px 0;
+}
+
+/* BlogHostingAppcontainer */
+
+
+.BlogHostingAppcontainer {
+    width: 80%;
+    margin: auto;
+    background: #fff;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.BlogHostingAppcontainer .main-header {
+    text-align: center;
+    background: white;
+    color: #0073e6;
+    padding: 20px 10px;
+    border-radius: 8px 8px 0 0;
+}
+
+.BlogHostingAppcontainer .main-header h1 {
+    margin: 0;
+    font-size: 28px;
+}
+
+.BlogHostingAppcontainer .main-header p {
+    margin: 5px 0 0;
+    font-size: 14px;
+}
+
+.BlogHostingAppcontainer section {
+    margin: 20px 0;
+    padding-bottom: 10px;
+}
+
+.BlogHostingAppcontainer section h2 {
+    font-size: 22px;
+    color: #0073e6;
+    border-bottom: 2px solid #0073e6;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+}
+
+.BlogHostingAppcontainer .subsection {
+    margin: 10px 0;
+}
+
+.BlogHostingAppcontainer .subsection h3 {
+    font-size: 18px;
+    color: #005bb5;
+    margin-bottom: 5px;
+}
+
+.BlogHostingAppcontainer p {
+    margin: 10px 0;
+}
+
+.BlogHostingAppcontainer ul {
+    margin: 10px 0 10px 20px;
+    list-style-type: disc;
+}
+
+.BlogHostingAppcontainer ul li {
+    margin-bottom: 8px;
+}
+
+.BlogHostingAppcontainer strong {
+    color: #005bb5;
 }

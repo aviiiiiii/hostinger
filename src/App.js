@@ -31,8 +31,6 @@ import { DataProvider } from "./contexts/DataContext";
 import Header from "./components/expenseTracker/Header";
 
 function App() {
-  localStorage.setItem("a", "b");
-  console.log(localStorage.getItem("a"));
   return (
     <DataProvider>
       <Router>

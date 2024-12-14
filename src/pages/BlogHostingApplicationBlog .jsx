@@ -7,28 +7,29 @@ function BlogHostingApplicationBlog() {
                     <h1>Scalable Blog Hosting Platform</h1>
                     <p>An AWS-Powered Architecture for Scalable Blog Management</p>
                 </header>
+                <p>Creating a blog platform that’s easy to use and handles a growing user base can be tricky. That’s why I built the Scalable Blog Hosting Platform using AWS services. Here’s how it works:</p>
                 <main>
                     <section>
-                        <h2>Frontend</h2>
-                        <p>The platform's frontend is built with <strong>ReactJS</strong> and offers a dynamic user experience. The React files are stored in an <strong>Amazon S3 bucket</strong>, and the application is hosted using <strong>AWS Amplify</strong>, ensuring efficient CI/CD deployment and scalability.</p>
+                        <h1>Frontend</h1>
+                        <p>&emsp;&emsp;&emsp;The platform's frontend is built with <strong>ReactJS</strong> and offers a dynamic user experience. The React files are stored in an <strong>Amazon S3 bucket</strong>, and the application is hosted using <strong>AWS Amplify</strong>, ensuring efficient CI/CD deployment and scalability.</p>
                     </section>
 
                     <section>
-                        <h2>Backend</h2>
+                        <h1>Backend</h1>
 
                         <div class="subsection">
                             <h3>User Authentication</h3>
-                            <p><strong>Amazon Cognito</strong> manages secure user authentication with email and password functionality, ensuring that only authorized users can access the platform.</p>
+                            <p>&emsp;&emsp;&emsp;<strong>Amazon Cognito</strong> manages secure user authentication with email and password functionality, ensuring that only authorized users can access the platform.</p>
                         </div>
 
                         <div class="subsection">
                             <h3>ExpressJS Backend on EC2 Instances</h3>
-                            <p>The backend is written in <strong>ExpressJS</strong>, deployed on <strong>EC2 instances</strong>, and optimized for high availability using an <strong>Application Load Balancer</strong> and <strong>Auto Scaling Groups</strong>. This setup ensures traffic is distributed across two availability zones for maximum fault tolerance and scalability.</p>
+                            <p>&emsp;&emsp;&emsp;The backend is written in <strong>ExpressJS</strong>, deployed on <strong>EC2 instances</strong>, and optimized for high availability using an <strong>Application Load Balancer</strong> and <strong>Auto Scaling Groups</strong>. This setup ensures traffic is distributed across two availability zones for maximum fault tolerance and scalability.</p>
                         </div>
 
                         <div class="subsection">
                             <h3>Amazon DynamoDB</h3>
-                            <p>Blog data is stored in a <strong>NoSQL DynamoDB table</strong> called <strong>BlogsTable</strong>. The table securely stores post details and ensures that users can only delete posts they created.</p>
+                            <p>&emsp;&emsp;&emsp;Blog data is stored in a <strong>NoSQL DynamoDB table</strong> called <strong>BlogsTable</strong>. The table securely stores post details and ensures that users can only delete posts they created.</p>
                         </div>
 
                         <div class="subsection">
@@ -43,13 +44,13 @@ function BlogHostingApplicationBlog() {
 
                         <div class="subsection">
                             <h3>Access Management</h3>
-                            <p>Using <strong>EC2 Instance Profiles</strong>, backend services securely interact with DynamoDB. This ensures that only the required actions can be performed, maintaining data security and integrity.</p>
+                            <p>&emsp;&emsp;&emsp;Using <strong>EC2 Instance Profiles</strong>, backend services securely interact with DynamoDB. This ensures that only the required actions can be performed, maintaining data security and integrity.</p>
                         </div>
                     </section>
 
                     <section>
-                        <h2>Conclusion</h2>
-                        <p>By combining <strong>ReactJS</strong>, <strong>AWS Amplify</strong>, <strong>Cognito</strong>, <strong>DynamoDB</strong>, and scalable <strong>EC2 instances</strong>, this platform offers a secure, robust, and scalable solution for hosting blogs. AWS’s seamless integration ensures high availability and a smooth user experience for both bloggers and administrators.</p>
+                        <h1>Conclusion</h1>
+                        <p>&emsp;&emsp;&emsp;By combining <strong>ReactJS</strong>, <strong>AWS Amplify</strong>, <strong>Cognito</strong>, <strong>DynamoDB</strong>, and scalable <strong>EC2 instances</strong>, this platform offers a secure, robust, and scalable solution for hosting blogs. AWS’s seamless integration ensures high availability and a smooth user experience for both bloggers and administrators.</p>
                     </section>
                 </main>
                 <div className="TeamTaskManagementBlogContent">

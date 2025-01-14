@@ -73,6 +73,9 @@ export const DataProvider = ({ children }) => {
     setSystemValue(systemValue);
     setUserValue(userValue);
 
+    // 
+    getTasks();
+
   }, []);
 
   ////////////////////////////////////////////////////
@@ -805,20 +808,35 @@ export const DataProvider = ({ children }) => {
     });
   }
 
-  const filterTasks = (event) => {
+  const filterTasks = async (event) => {
     try{
     event.preventDefault();
     }catch{
       //pass
     }
     if (event.nativeEvent.submitter.name === "filter") {
-      const filterDetails = {
-        taskId: event.target[0].value,
-        taskName: event.target[1].value,
-        assignee: event.target[2].value,
-        taskStatus: event.target[3].value 
-      };
-      fetchTransactionsWithFilter(filterDetails);
+      let taskId = (event.target[0].value).trim();
+      let taskName = (event.target[1].value).trim();
+      let assignee = (event.target[2].value).trim();
+      let taskStatus = (event.target[3].value).trim(); 
+      const response = await axios.get(Task_API_URL +'/tasks');
+      let body = JSON.parse(response.data.body);
+      let filteredData = body;
+      if(taskStatus != ""){
+        filteredData = body.filter(filtered => filtered.taskStatus == taskStatus);
+      }
+       
+      if (taskId != ""){
+        filteredData = filteredData.filter(filtered => filtered.taskId == taskId);
+      }
+      if (taskName != ""){
+        filteredData = filteredData.filter(filtered => filtered.taskName == taskName);
+      }
+      if (assignee != ""){
+        filteredData = filteredData.filter(filtered => filtered.assignee == assignee);
+      }
+      console.log(filteredData)
+      setTasks(filteredData);
     } else {
       console.log(event.target);
       event.target.reset();

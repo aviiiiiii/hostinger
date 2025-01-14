@@ -31,7 +31,7 @@ function TaskFilter({filterTasks, getTasks}) {
             <div className='buttonGroup'>
             <button id='filter' name ='filter' type='submit'>Filter Task</button>
             <button id='resetFields' name ='resetFields' type='submit'>Reset</button>
-            <button id="getTasks" onClick={getTasks}>getTasks</button>      
+            {/* <button id="getTasks" onClick={getTasks}>getTasks</button>       */}
             </div>
             </form>
             <hr></hr>

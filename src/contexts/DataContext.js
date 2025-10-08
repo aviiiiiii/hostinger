@@ -52,29 +52,37 @@ export const DataProvider = ({ children }) => {
     // getTasks();
     fetchEvents();
     ///////////////////////////////////////////
-    let formattedMonth;
-    let formattedMonth1;
-    formattedMonth = Number(currentMonth) + 1;
-    formattedMonth = String(formattedMonth);
-    if (formattedMonth.length === 1) formattedMonth = "0" + formattedMonth;
-    formattedMonth1 = currentYear + "-" + formattedMonth;
-    fetchTransactions();
-    setYear(currentYear);
-    setMonth(formattedMonth1);
-    fetchYearlyIncome(currentYear);
-    fetchYearlyExpense(currentYear);
-    fetchMonthlyIncome(formattedMonth1);
-    fetchMonthlyExpense(formattedMonth1);
-    ////////////////////////////////////////
-    // searchImage();
-    setImageURL(imageURL);
-    setApiAsyncResponse(apiAsyncResponse);
-    setApiSyncResponse(apiSyncResponse);
-    setSystemValue(systemValue);
-    setUserValue(userValue);
 
-    // 
-    getTasks();
+
+    //Commented for reducing the load
+
+    
+    // let formattedMonth;
+    // let formattedMonth1;
+    // formattedMonth = Number(currentMonth) + 1;
+    // formattedMonth = String(formattedMonth);
+    // if (formattedMonth.length === 1) formattedMonth = "0" + formattedMonth;
+    // formattedMonth1 = currentYear + "-" + formattedMonth;
+    // fetchTransactions();
+    // setYear(currentYear);
+    // setMonth(formattedMonth1);
+    // fetchYearlyIncome(currentYear);
+    // fetchYearlyExpense(currentYear);
+    // fetchMonthlyIncome(formattedMonth1);
+    // fetchMonthlyExpense(formattedMonth1);
+    // ////////////////////////////////////////
+    // // searchImage();
+    // setImageURL(imageURL);
+    // setApiAsyncResponse(apiAsyncResponse);
+    // setApiSyncResponse(apiSyncResponse);
+    // setSystemValue(systemValue);
+    // setUserValue(userValue);
+
+    // // 
+    // getTasks();
+
+
+    
 
   }, []);
 

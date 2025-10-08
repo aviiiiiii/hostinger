@@ -7,7 +7,7 @@ function AddVehicle({btnAddVehicleClose,tollList, calculateTariff,addVehicleSubm
         <button className='add-formClose' onClick={btnAddVehicleClose}>close</button>
         <form id="formVehicle" onSubmit={addVehicleSubmit}>
             <label htmlFor='tollName' >Select Toll Name*</label><br/>
-            <select id='tollName' name='tollName' onChange={calculateTariff}>
+            <select id='tollName' name='tollName' onChange={calculateTariff} required>
                 {tollList.map((toll)=>{
                     return <option key= {toll.name} value={toll.name}>{toll.name}</option>    
                 })}

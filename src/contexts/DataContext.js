@@ -337,6 +337,20 @@ export const DataProvider = ({ children }) => {
       return;
     }
 
+    let tollName = event.target[0].value;
+     let found = false;
+     tollList.forEach((toll) => {
+      if (toll.name === tollName) {
+            found = true;
+            return;
+      }
+    });
+    
+    if(found==true){
+      alert("Toll already exists");
+      return;
+    }
+
     let carSingle,
       carReturn,
       lcvSingle,

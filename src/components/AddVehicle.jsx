@@ -27,26 +27,26 @@ function AddVehicle({ btnAddVehicleClose, tollList, calculateTariff, addVehicleS
 
       
       <form id="formVehicle" onSubmit={handleSubmit}>
-        <label htmlFor='tollName'>Select Toll Name*</label><br>
+        <label htmlFor='tollName'>Select Toll Name*</label><br/>
 
         <select id='tollName' name='tollName' onChange={calculateTariff}>
           {tollList.map((toll) => {
             return <option key={toll.name} value={toll.name}>{toll.name}</option>
           })}
-        </select><br>
+        </select><br/>
 
 
-        <label htmlFor='vehicleType'>Select Vehicle Type*</label><br>
+        <label htmlFor='vehicleType'>Select Vehicle Type*</label><br/>
 
         <select id='vehicleType' name='vehicleType' onChange={calculateTariff}>
           <option value='Car/Jeep/Van'>Car/Jeep/Van</option>
           <option value='LCV'>LCV</option>
           <option value='Truck/Bus'>Truck/Bus</option>
           <option value='Heavy Vehicle'>Heavy Vehicle</option>
-        </select><br>
+        </select><br/>
 
 
-        <label htmlFor='vehicleNumber'>Vehicle Number*</label><br>
+        <label htmlFor='vehicleNumber'>Vehicle Number*</label><br/>
 
         <input
           type='text'
@@ -61,13 +61,13 @@ function AddVehicle({ btnAddVehicleClose, tollList, calculateTariff, addVehicleS
         />
        
         {error && <p style={{ color: "red" }}>{error}</p>}
-<br>
+<br/>
 
         
 
-        <label htmlFor='Tariff'>Tariff*</label><br>
+        <label htmlFor='Tariff'>Tariff*</label><br/>
 
-        <input type='number' id='Tariff' disabled></input><br>
+        <input type='number' id='Tariff' disabled></input><br/>
 
         <div className='btn-add'>
           <button type='submit'>Add Entry</button>
